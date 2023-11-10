@@ -1,0 +1,44 @@
+@font-face {
+    font-family: 'Pretendard-variable';
+    src: url(/src/main/resources/template/img/font/PretendardVariable.ttf);
+}
+
+* { 
+    margin: 0px; 
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Pretendard-variable';
+}
+
+/* header a img {
+    margin-left: 50px;
+    margin-top: 19px;
+} */
+
+.container {
+    width: 550px;
+    height: 610px;
+    border: 1px solid #000000;
+    border-radius: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 95px;
+}
+
+.container .loginPage {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.container .loginPage .title {
+    font-size: 100px;
+    color: #1155CC;
+}
+
+
+
+
+
