@@ -12,16 +12,18 @@
   </header>
   <div class="container">
     <div class="loginPage">
-      <h1 class="title">Login</h2>
+      <h1 class="title">로그인</h2>
         <form action="/login" method="post">
-          <div>ID</div>
+          <div class="tag-name">아이디</div>
             <input type="text" name="userID" class="form-Input">
-          <div>Password</div>
+          <div class="tag-name">비밀번호</div>
             <input type="password" name="userPassword" class="form-input">
           <div id="form-btn">
             <input type="submit" value="Sign in">
           </div>
         </form>
+        <a href="#" class="forgotIDPW"><p>아이디 및 비밀번호를 잃어버리셨나요?</p></a>
+        <a href="#" class="create-account"><p>회원가입 하러 가기</p></a>
     </div>
   </div>
 </body>
