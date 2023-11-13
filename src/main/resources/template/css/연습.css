@@ -1,0 +1,57 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+  }
+  table {
+    width: 80%;
+    margin: 50px auto;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+  td {
+    cursor: pointer;
+    text-align: center;
+  }
+  /* 일요일과 텍스트를 빨간색으로 지정합니다. */
+  td:nth-child(1), th:nth-child(1) {
+    color: red;
+  }
+  /* 토요일과 텍스트를 파란색으로 지정합니다. */
+  td:nth-child(7), th:nth-child(7) {
+    color: blue;
+  }
+  /* 공휴일을 위한 스타일링 */
+  .holiday {
+    background-color: #ffcccc; /* 공휴일의 밝은 빨간 배경색 */
+  }
+  /* 오늘의 날짜를 위한 스타일링 */
+  .today {
+    background-color: #b3d9ff; /* 오늘의 밝은 파란 배경색 */
+  }
+  /* 클릭한 날짜를 위한 스타일링 */
+  .clicked {
+    background-color: #ccffcc; /* 클릭한 날짜의 밝은 녹색 배경색 */
+  }
+  /* 월과 버튼을 위한 스타일링 */
+  #month {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  #navigation {
+    display: flex;
+    flex-direction: row; /* 가로로 배치 */
+    justify-content: center; /* 중앙 정렬 */
+    align-items: center; /* 중앙 정렬 */
+    gap: 10px; /* 각 요소 간의 간격 조절 */
+  }
+  #navigation button {
+    font-size: 1em;
+    padding: 5px 10px;
+    cursor: pointer;
+  }

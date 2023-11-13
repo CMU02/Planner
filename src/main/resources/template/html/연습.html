@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/main/resources/template/css/연습.css">
+    <title>JDevList Calendar</title>
+</head>
+<body>
+<header>
+    <a href="#"><img src="/src/main/resources/template/img/logo/JDevList.svg" alt="LOGO" width="216px" height="63px"></a>
+</header>
+    <h1>Calendar</h1>
+
+    <div id="navigation">
+        <div id="month"></div>
+        
+        <button onclick="prevMonth()">이전 달</button>
+        <button onclick="nextMonth()">다음 달</button>
+    </div>
+    
+    <table id="calendar">
+        <thead>
+            <tr>
+                <th>일요일</th>
+                <th>월요일</th>
+                <th>화요일</th>
+                <th>수요일</th>
+                <th>목요일</th>
+                <th>금요일</th>
+                <th>토요일</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const calendarBody = document.querySelector('#calendar tbody');
+            const monthElement = document.querySelector('#month');
+            let currentMonth = (new Date()).getMonth();
+            let currentYear = (new Date()).getFullYear();
+    
+            // 샘플 공휴일 데이터 (실제 데이터로 교체하세요)
+            const koreanHolidays = [
+            { year: 2023, month: 1, day: 1},
+                { year: 2023, month: 1, day: 22},
+                { year: 2023, month: 1, day: 23},
+                { year: 2023, month: 1, day: 24},
+                { year: 2023, month: 3, day: 1},
+                { year: 2023, month: 5, day: 5},
+                { year: 2023, month: 5, day: 27},
+                { year: 2023, month: 5, day: 29},
+                { year: 2023, month: 6, day: 6},
+                { year: 2023, month: 8, day: 15},
+                { year: 2023, month: 9, day: 28},
+                { year: 2023, month: 9, day: 29},
+                { year: 2023, month: 9, day: 30},
+                { year: 2023, month: 10, day: 2 },
+                { year: 2023, month: 10, day: 3 },
+                { year: 2023, month: 10, day: 9 },
+                { year: 2023, month: 12, day: 25 },
+                { year: 2024, month: 1, day: 1 },
+                { year: 2024, month: 2, day: 9 },
+                { year: 2024, month: 2, day: 10 },
+                { year: 2024, month: 2, day: 12 },
+                { year: 2024, month: 3, day: 1 },
+                { year: 2024, month: 3, day: 1 },
+                { year: 2024, month: 4, day: 10 },
+                { year: 2024, month: 5, day: 5 },
+                { year: 2024, month: 5, day: 6 },
+                { year: 2024, month: 5, day: 15 },
+                { year: 2024, month: 6, day: 6 },
+                { year: 2024, month: 8, day: 15 },
+                { year: 2024, month: 9, day: 16 },
+                { year: 2024, month: 9, day: 17 },
+                { year: 2024, month: 9, day: 18 },
+                { year: 2024, month: 10, day: 3 },
+                { year: 2024, month: 10, day: 9 },
+                { year: 2024, month: 12, day: 25 },
+                // ... (이전의 공휴일 데이터)
+            ];
+    
+            // 클릭한 날짜를 저장하는 변수
+            let clickedDate = null;
+    
+            function generateCalendar(year, month) {
+                const today = new Date();
+                const todayYear = today.getFullYear();
+                const todayMonth = today.getMonth() + 1; // 월은 0부터 시작하므로 1을 더합니다.
+                const todayDate = today.getDate();
+    
+                const firstDay = new Date(year, month, 1);
+                const lastDay = new Date(year, month + 1, 0);
+                const daysInMonth = lastDay.getDate();
+    
+                // 이전 달의 데이터를 지웁니다.
+                calendarBody.innerHTML = '';
+    
+                let date = 1;
+                for (let i = 0; i < 6; i++) {
+                    const row = calendarBody.insertRow();
+                    for (let j = 0; j < 7; j++) {
+                        const cell = row.insertCell();
+                        if ((i === 0 && j < firstDay.getDay()) || date > daysInMonth) {
+                            cell.textContent = '';
+                        } else {
+                            cell.textContent = date;
+                            const isHoliday = koreanHolidays.some(holiday => {
+                                return holiday.year === year && holiday.month === (month + 1) && holiday.day === date;
+                            });
+                            if (isHoliday) {
+                                cell.classList.add('holiday');
+                            }
+                            if (year === todayYear && month + 1 === todayMonth && date === todayDate) {
+                                cell.classList.add('today');
+                            }
+                            // 셀의 날짜가 클릭한 날짜와 일치하는지 확인합니다.
+                            if (clickedDate && year === clickedDate.year && month + 1 === clickedDate.month && date === clickedDate.day) {
+                                cell.classList.add('clicked');
+                            }
+                            cell.addEventListener('click', function () {
+                                // 이전에 클릭한 셀에서 'clicked' 클래스를 제거합니다.
+                                const prevClickedCell = document.querySelector('.clicked');
+                                if (prevClickedCell) {
+                                    prevClickedCell.classList.remove('clicked');
+                                }
+                                // 클릭한 셀에 'clicked' 클래스를 추가합니다.
+                                cell.classList.add('clicked');
+                                // 클릭한 날짜를 저장합니다.
+                                clickedDate = { year: year, month: month + 1, day: date };
+                                // 클릭한 날짜에 대한 정보를 표시합니다.
+                                // alert(`${year}-${month + 1}-${date}에 클릭했습니다.`);
+                            });
+                            date++;
+                        }
+                    }
+                }
+    
+                // 현재 월과 연도를 표시합니다.
+                const monthName = new Intl.DateTimeFormat('ko-KR', { month: 'long' }).format(new Date(year, month));
+                monthElement.textContent = `${year}년 ${monthName}`;
+            }
+    
+            window.prevMonth = function() {
+                clickedDate = null; // 이전 달로 이동할 때 클릭한 날짜를 지웁니다.
+                currentMonth--;
+                if (currentMonth < 0) {
+                    currentMonth = 11;
+                    currentYear--;
+                }
+                generateCalendar(currentYear, currentMonth);
+            };
+    
+            window.nextMonth = function() {
+                clickedDate = null; // 다음 달로 이동할 때 클릭한 날짜를 지웁니다.
+                currentMonth++;
+                if (currentMonth > 11) {
+                    currentMonth = 0;
+                    currentYear++;
+                }
+                generateCalendar(currentYear, currentMonth);
+            };
+    
+            generateCalendar(currentYear, currentMonth);
+        });
+    </script>
+
+</body>
+</html>
