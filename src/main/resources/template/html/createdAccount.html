@@ -1,55 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="/src/main/resources/template/css/회원가입.css">
     <title>Document</title>
-    <style>
-        body {
-            text-align: center;
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* 요소들을 페이지 맨 위와 맨 아래에 정렬 */
-            background-color: #f2f2f2; /* 배경색 추가 */
-        }
-
-        h1, h3 {
-            color: blue;
-            margin: 5px 0; /* 각 요소 사이의 간격을 조절 */
-        }
-
-        .box {
-            width: 400px; /* 네모 박스의 가로 크기 */
-            height: 50px; /* 네모 박스의 세로 크기 */
-            background-color: white;
-            border: 2px solid blue; /* 테두리 추가 */
-            border-radius: 10px; /* 둥근 테두리를 위한 값 */
-            margin: 5px auto; /* 가운데 정렬을 위한 값 */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
-        }
-        .highlighted-box {
-            background-color: blue; /* 특정 네모박스의 색상 변경 */
-            border-color: blue;
-        }
-        h6 {
-            color: black; /* 전체 h6 텍스트의 기본 색상 */
-        }
-
-        .highlighted-text {
-            color: red; /* 특정 텍스트의 색상을 바꾸는 스타일 */
-        }
-        .highlighted2-text {
-            color: white;
-        }
-
-        .jdevlist-text {
-            margin: 20px; /* JDevList 텍스트의 위치 조절 */
-            align-self: flex-start; /* 텍스트를 왼쪽 상단에 정렬 */
-        }
-    </style>
 </head>
 <body>
     <h1 class="jdevlist-text">JDevList</h1>
@@ -69,7 +22,7 @@
         <!-- 네모 박스 내용 -->
         <input type="password" placeholder="Enter your password">
     </div>
-    <h6>Make syre it's at least <span class="highlighted-text">15 characters</span> or at least 8<br> characters including a number and a lowercase lette.r</h6>
+    <h6>Make sure it's at least <span class="highlighted-text">15 characters</span> or at least 8<br> characters including a number and a lowercase letter.</h6>
     <div class="box highlighted-box"><span class="highlighted2-text">Create Account</span></div>
 </body>
 </html>
