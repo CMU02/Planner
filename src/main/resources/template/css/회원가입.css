@@ -13,7 +13,7 @@ h1, h3 {
     margin: 5px 0; /* 각 요소 사이의 간격을 조절 */
 }
 
-.box {
+.box input {
     width: 400px; /* 네모 박스의 가로 크기 */
     height: 50px; /* 네모 박스의 세로 크기 */
     background-color: white;
