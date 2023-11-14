@@ -61,17 +61,17 @@ header .user-profile a {
 .side-bar {
     width: 280px;
     height: 800px;
-    box-shadow: 10px 0 10px -5px gray;
+    box-shadow: 10px 5px 10px -5px gray;
     margin-top: 15px;
     border-radius: 10px;
     background-color: #ffffff;
-    /* transform: translate(-230px, 0); */
-    /* transition: 0.7s; */
+    transform: translate(-230px, 0);
+    transition: 0.7s;
 }
 
-/* .side-bar:hover {
+.side-bar:hover {
     transform: translate(0px, 0px)
-} */
+}
 
 .side-bar ul {
     padding-top: 25px;
