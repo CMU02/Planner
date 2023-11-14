@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +7,7 @@
     <title>JDevList Calendar</title>
 </head>
 <body>
+    <!-- 헤더 영역 -->
     <header>
         <a href="#"><img src="../img/logo/JDevList.svg" alt="로고" class="logo"></a>
         <div class="search">
@@ -21,6 +22,7 @@
         </div>
     </header>
     <div class="container">
+        <!-- 사이드 바 영역 -->
         <aside class="side-bar">
             <ul>
                 <li>
@@ -61,9 +63,11 @@
                 </li>
             </ul>
         </aside>
-        <section>
-
+        <!-- 메인 컨텐츠 영역 -->
+        <section id="calendar-wrap">
+            <div id="calendar"></div>
         </section>
     </div>
+    <script src="/src/main/resources/static/calendar.js"></script>
 </body>
 </html>
