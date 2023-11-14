@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/main/resources/template/css/Calendar.css">
+    <link rel="stylesheet" href="../css/main.css">
     <title>JDevList Calendar</title>
 </head>
 <body>
@@ -11,7 +11,7 @@
         <a href="#"><img src="/src/main/resources/template/img/logo/JDevList.svg" alt="로고" class="logo"></a>
         <div class="search">
             <!-- action는 추후에 백엔드가 개발되면 링크 삽입 -->
-            <form action="#">
+            <form action="#" method="get">
                 <!-- placeholder 추후에 바뀔수 있음. -->
                 <input type="text" name="search-text" placeholder="검색어를 입력하세요.">
             </form>
@@ -20,47 +20,50 @@
             <a href="#"><p>User Nickname</p></a>
         </div>
     </header>
-    <aside class="side-bar">
-        <section class="side-bar__icon-box">
-            <section class="side-bar__icon-1">
-                <div></div>
-                <div></div>
-                <div></div>
-            </section>
+    <div class="container">
+        <aside class="side-bar">
+            <ul>
+                <li>
+                    <a href="#">
+                        <img src="../img/icon/dashboard.svg" alt="dashboard">
+                        <p>대쉬보드</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../img/icon/calendar.svg" alt="Calendar">
+                        <p>캘린더</p>   
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../img/icon/map.svg" alt="RoadMap">
+                        <p>로드맵</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../img/icon/comment.svg" alt="Discussion">
+                        <p>질문 게시판</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../img/icon/note.svg" alt="Notes">
+                        <p>노트</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../img/icon/help.svg" alt="Help">
+                        <p>도움말</p>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        <section>
+            
         </section>
-        <ul>
-            <li>
-                <a href="#">
-                    <p>대쉬보드</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <p>캘린더</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <p>모드맵</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <p>질문게시판</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <p>노트</p>
-                </a>
-            </li>
-        </ul>
-    </aside>
-    <section>
-        <h3 class="sidebar_title">캘린더</h3>
-        <article>
-
-        </article>
-    </section>
+    </div>
 </body>
 </html>
