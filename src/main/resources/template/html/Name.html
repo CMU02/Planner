@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/src/main/resources/template/css/회원가입.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: white; /* 전체 배경색 지정 */
+        }
+
+        .header-box {
+            background-color: blue; /* 파란색 네모 박스 배경색 */
+            padding: 20px; /* 네모 박스 안 여백 */
+            margin-bottom: 20px; /* 네모 박스와 내용 사이 여백 */
+            border-radius: 10px; /* 네모 박스 둥글게 만들기 */
+        }
+
+        h1, h3 {
+            color: blue;
+            background-color: white;
+            margin: 1; /* 기본 마진 제거 */
+        }
+        h3 {
+            position: relative;
+            right: 140px;
+        }
+
+        .box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            padding: 30px; /* 세로 크기를 늘린 부분 */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(138, 127, 127, 0.1);
+            border: 2px solid black;
+        }
+
+        input {
+            margin-top: 10px;
+            margin-bottom: 60px; /* 아이디 입력 박스와 Enter 텍스트 간격 조절 */
+            padding: 15px; /* 크기를 늘린 부분 */
+            border: 1px solid black;
+            border-radius: 8px; /* 둥글게 만든 부분 */
+            width: 300px; /* 너비를 지정한 부분 */
+        }
+
+        .enter-button {
+            background-color: blue;
+            color: white;
+            padding: 15px 150px; /* 크기를 늘린 부분 */
+            border: none;
+            border-radius: 8px; /* 둥글게 만든 부분 */
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .enter-button:hover {
+            background-color: darkblue; /* 버튼에 호버 효과 추가 */
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="jdevlist-text">JDevList</h1>
+    <div class="box">
+        <h1>Enter Your Name</h1>
+        <!-- 네모 박스 내용 -->
+        <h3>Name</h3>
+        <input type="text" placeholder="아이디를 입력하세요.">
+        <button class="enter-button" onclick="handleClick()">Enter</button>
+    </div>
+
+    <script>
+        function handleClick() {
+            // 클릭되었을 때 수행할 동작을 추가할 수 있습니다.
+        }
+    </script>
+</body>
+</html>
