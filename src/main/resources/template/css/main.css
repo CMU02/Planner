@@ -65,13 +65,13 @@ header .user-profile a {
     margin-top: 15px;
     border-radius: 10px;
     background-color: #ffffff;
-    transform: translate(-230px, 0);
-    transition: 0.7s;
+    /* transform: translate(-230px, 0);
+    transition: 0.7s; */
 }
 
-.side-bar:hover {
+/* .side-bar:hover {
     transform: translate(0px, 0px)
-}
+} */
 
 .side-bar ul {
     padding-top: 2.6vh;
@@ -105,4 +105,14 @@ header .user-profile a {
     color: #000000;
 }
 
-
+section {
+    margin-left: 2%;
+    margin-top: 1.0%;
+    width: 81%;
+    height: 84.5vh;
+    background-color: #ffffff;
+}
+#calendar {
+    width: 70%;
+    height: 81vh;
+}
