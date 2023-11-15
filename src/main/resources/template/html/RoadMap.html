@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/로드맵.css">
+    <title>JDevList Calendar</title>
+</head>
+<body>
+    <!-- 헤더 영역 -->
+    <header>
+        <a href="#"><img src="../img/logo/JDevList.svg" alt="로고" class="logo"></a>
+        <div class="search">
+            <!-- action는 추후에 백엔드가 개발되면 링크 삽입 -->
+            <form action="#" method="get">
+                <!-- placeholder 추후에 바뀔수 있음. -->
+                <input type="text" name="t" placeholder="검색어를 입력하세요.">
+            </form>
+        </div>
+        <div class="user-profile">
+            <a href="#"><p>User Nickname</p></a>
+        </div>
+    </header>
+    <div class="container">
+        <!-- 사이드 바 영역 -->
+        <aside class="side-bar">
+            <ul>
+                <li>
+                    <a href="#">
+                        <img src="../img/icon/dashboard.svg" alt="dashboard">
+                        <p>대쉬보드</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="../html/Calendar.html">
+                        <img src="../img/icon/calendar.svg" alt="Calendar">
+                        <p>캘린더</p>   
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../img/icon/map.svg" alt="RoadMap">
+                        <p>로드맵</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../img/icon/comment.svg" alt="Discussion">
+                        <p>질문 게시판</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../img/icon/note.svg" alt="Notes">
+                        <p>노트</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../img/icon/help.svg" alt="Help">
+                        <p>도움말</p>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        <!-- 메인 컨텐츠 영역 -->
+        <section id="RoadMap">
+                <div class="main-container">
+                <form action="#" method="post">
+                    <div class="box">
+                        <!-- 네모 박스 내용 -->
+                        <h3>Role Based RoadMaps</h3>
+                    </div>
+                    <div class="box">
+                        <!-- 네모 박스 내용 -->
+                        <input type="button" value="Front End">
+                    </div>
+                    <div class="box">
+                        <!-- 네모 박스 내용 -->
+                        <input type="button" value="Back End">
+                    </div>
+                    
+                </form>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
