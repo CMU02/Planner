@@ -17,7 +17,6 @@ nav {
 nav .create-Plan {
     width: 100%;
     height: 11.2%;
-    background-color: #E1d8ff;
     padding-top: 5%;
     padding-left: 34%;
 }
@@ -29,8 +28,40 @@ nav .create-Plan button {
     border-radius: 50px;
 }
 nav .create-Plan button:hover {
-    transform: scale(1.125);
-    transition: .1s;
+    transform: scale(1.12);
+    transition: .7s;
+}
+nav .Plan-List {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden
+}
+nav .Plan-List .card {
+    width: 95%;
+    height: 25%;
+    background-color: #E1D8ff;
+    margin-bottom: 5%;
+    border-radius: 25px;
+}
+nav .Plan-List .card .card-header {
+    padding-left: 5%;
+}
+nav .Plan-List .card .card-body {
+    padding-left: 5%;
 }
 
+nav .Plan-List .card .card-body .content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
+.container .createPlan-wrap {
+    width: 35%;
+    height: 84.5vh;
+    margin-top: 1%;
+    background-color: #ffffff;
+    /* javascript 로 버튼을 눌러 display:block으로 바꾸기 */
+    display: block;
+}
