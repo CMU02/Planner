@@ -10,6 +10,7 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+    margin-top: 20px;
 }
 .box input{
     width: 300px; /* 네모 박스의 가로 크기 */
@@ -25,13 +26,27 @@
     background-color: lightgray;
 }
 .main-container {
-    width: 80%; /* 화면 가로 크기에 따라 조절 */
-    margin-top: 40vh;
+    width: 80%;
+    margin: 0 auto; /* 중앙 정렬을 위한 추가된 스타일 */
+    padding: 20px;
+    box-sizing: border-box; /* 패딩과 테두리가 너비에 포함되도록 설정 */
+    height: 45vh; /* 높이를 100vh로 설정하여 뷰포트의 전체 높이를 차지하도록 설정 */
 }
-section {
+#RoadMap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin-left: 2%;
     margin-top: 1.0%;
     width: 81%;
     height: 84.5vh;
     background-color: #ffffff;
+}
+
+#RoadMap h1 {
+    text-align: center;
+    padding: 25px;
+    margin: 0;
+    font-size: 40px;
 }
