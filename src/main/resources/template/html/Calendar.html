@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/PlanList.css">
     <title>JDevList Calendar</title>
 </head>
 <body>
@@ -65,9 +66,71 @@
         </aside>
         <!-- 메인 컨텐츠 영역 -->
         <section id="calendar-wrap">
-            <!-- <div id="calendar"></div> -->
+            <div id="calendar"></div>
         </section>
+
+        <nav class="PlanList-container">
+            <div class="create-Plan">
+                <button><img src="../img/icon/Add-white.svg" alt=""></button>
+            </div>
+            <div class="Plan-List">
+                <div class="card">
+                    <div class="card-header">
+                        <!-- 일정 제목 -->
+                        <div class="title">
+                            <h3>Title</h3>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="card-body">
+                        <!-- 일정 상세 내용들 -->
+                        <div class="startDate">시작날짜 : 2023-11-17</div>
+                        <div class="lastDate">종료 날짜 : 2023-11-18</div>
+                        <div class="content">Hello word</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <!-- 일정 제목 -->
+                        <div class="title">
+                            <h3>Title</h3>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="card-body">
+                        <!-- 일정 상세 내용들 -->
+                        <div class="startDate">시작날짜 : 2023-11-17</div>
+                        <div class="lastDate">종료 날짜 : 2023-11-18</div>
+                        <div class="content">Hello word</div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="createPlan-wrap">
+            <form action="" method="post">
+                <div class="title">
+                    <h3>제목</h3>
+                    <input type="text" placeholder="제목" name="title">
+                </div>
+                <div class="dateTime">
+                    <div class="startDateTime">
+                        <h3>시작</h3>
+                        <input type="datetime-local" name="start-date-time" id="start">
+                    </div>
+                    <div class="endDateTime">
+                        <h3>종료</h3>
+                        <input type="datetime-local" name="end-date-time" id="end">
+                    </div>
+                    <div class="memo">
+                        <h3>메모 내용</h3>
+                        <textarea name="memo" id="memo" cols="30" rows="10"></textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
+
     <script src="/src/main/resources/static/calendar.js"></script>
 </body>
 </html>

@@ -5,9 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var calendar = new FullCalendar.Calendar(calendatEI, {
     headerToolbar: {
-      left : 'prev,next,today',
+      left : 'prev,today,next',
       center : 'title',
-      right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+      right: 'dayGridMonth,timeGridWeek,timeGridDay'
     },
     initialData: 'today',
     navLinks : true,

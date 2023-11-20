@@ -61,7 +61,7 @@ header .user-profile a {
 .side-bar {
     width: 14.6%;
     height: 85vh;
-    box-shadow: 10px 5px 10px -5px gray;
+    box-shadow: 10px 8px 10px -5px gray;
     margin-top: 15px;
     border-radius: 10px;
     background-color: #ffffff;
@@ -111,8 +111,7 @@ section {
     width: 81%;
     height: 84.5vh;
     background-color: #ffffff;
-}
-#calendar {
-    width: 70%;
-    height: 81vh;
+    display: flex;
+    justify-content: flex-end;
+    box-shadow: 10px 8px 10px -2px gray;
 }
