@@ -58,10 +58,58 @@ nav .Plan-List .card .card-body .content {
 }
 
 .container .createPlan-wrap {
-    width: 35%;
+    width: 25%;
     height: 84.5vh;
     margin-top: 1%;
+    margin-right: 1%;
     background-color: #ffffff;
     /* javascript 로 버튼을 눌러 display:block으로 바꾸기 */
     display: block;
+    border-radius: 15px 15px;
+    box-shadow: 0px 8.5px 10px -2px gray;
+}
+
+.container .createPlan-wrap form {
+    display: flex;
+    flex-direction: column;
+}
+.container .createPlan-wrap form .title {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 5%;
+    padding-top: 1.5%;
+}
+.container .createPlan-wrap form .title input {
+    width: 65%;
+    height: 5vh;
+}
+.container .createPlan-wrap form .dateTime {
+    width: 100%;
+    height: 68vh;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    padding-left: 5%;
+}
+.container .createPlan-wrap form .dateTime .DateTime input {
+    width: 95%;
+    height: 3.5vh;
+}
+.container .createPlan-wrap form .memo textarea {
+    width: 21.5vh;
+    height: 50vh;
+    resize: none;
+}
+.container .createPlan-wrap form .submit {
+    margin-left: 5%;
+    width: 25%;
+    height: 4.5vh;
+    border: 0px;
+    border-radius: 15px;
+    background-color: #1155CC;
+    color: white;
+    font-size: 20px;
 }
