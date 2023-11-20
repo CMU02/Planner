@@ -1,0 +1,36 @@
+#RoadMap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+
+.main-container > div {
+    width: 100%;
+}
+
+.box input{
+    width: 13%;
+    height: 40px;
+    font-size: 12px; /* 수정: 폰트 크기를 줄임 */
+    color: black;
+    background-color: white;
+    border: 1px solid #1155cc;
+    box-sizing: border-box;
+    margin: 5px auto;
+    display: flex; 
+    flex: 1;
+    float: left;
+    text-align: center;
+    flex-direction: row;
+}
+
+.box input:hover {
+    background-color: lightgray;
+}
