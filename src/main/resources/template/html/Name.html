@@ -36,7 +36,7 @@
             background-color: white;
             padding: 30px; /* 세로 크기를 늘린 부분 */
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(138, 127, 127, 0.1);
+            box-shadow: 5px 5px 5px;
             border: 2px solid black;
         }
 
@@ -62,16 +62,37 @@
         .enter-button:hover {
             background-color: darkblue; /* 버튼에 호버 효과 추가 */
         }
+        .box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(138, 127, 127, 0.1);
+            border: 2px solid black;
+            position: relative; /* 부모 요소를 기준으로 자식 요소를 위치시키기 위해 position 속성 추가 */
+        }
+
+        img {
+            position: absolute; /* 이미지를 절대 위치로 설정 */
+            top: 0; /* 상단으로 이동 */
+            left: 0; /* 왼쪽으로 이동 */
+            width: 200x; /* 이미지 너비를 조절 (원하는 크기로 변경 가능) */
+            height: 100px; /* 이미지 높이를 조절 (원하는 크기로 변경 가능) */
+        }
+
+
     </style>
     <title>Document</title>
 </head>
 <body>
-    <h1 class="jdevlist-text">JDevList</h1>
+    <img src="../img/logo/JDevList.svg" alt="">
     <div class="box">
         <h1>Enter Your Name</h1>
         <!-- 네모 박스 내용 -->
         <h3>Name</h3>
-        <input type="text" placeholder="아이디를 입력하세요.">
+        <input type="text" placeholder="이름을 입력하세요.">
         <button class="enter-button" onclick="handleClick()">Enter</button>
     </div>
 
