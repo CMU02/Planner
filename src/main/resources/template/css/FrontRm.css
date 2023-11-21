@@ -33,3 +33,6 @@
 .box input:hover {
     background-color: lightgray;
 }
+.wrapbox {
+    display:flex;
+}
