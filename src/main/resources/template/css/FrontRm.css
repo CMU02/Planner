@@ -1,6 +1,6 @@
 #RoadMap {
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
     align-items: flex-start;
 }
 
@@ -22,7 +22,6 @@
     color: black;
     background-color: white;
     border: 1px solid #1155cc;
-    box-sizing: border-box;
     margin: 5px auto;
     display: flex; 
     flex: 1;
