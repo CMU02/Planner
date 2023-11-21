@@ -22,7 +22,7 @@
     color: black;
     background-color: white;
     border: 1px solid #1155cc;
-    margin: 5px auto;
+    margin: 5px 15px 5px 0;
     display: flex; 
     flex: 1;
     float: left;
