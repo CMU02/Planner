@@ -12,6 +12,8 @@ public class DiscussionsService {
     private final DiscussionsRepository discussionsRepository;
 
     public void save(DiscussionsDTO discussionsDTO){
+        System.out.println("DTO -> Service");
         DiscussionsEntity discussionsEntity = DiscussionsEntity.toEntity(discussionsDTO);
+        discussionsRepository.save(discussionsEntity);
     }
 }

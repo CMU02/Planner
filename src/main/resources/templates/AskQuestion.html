@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/discussions.css">
+    <link rel="stylesheet" type="text/css" href="../css/discussions.css">
     <title>JDevList Discussions</title>
     <style>
         section{
@@ -129,13 +129,12 @@
                     </div>
         
                     <input type="text" id="title" name="title" placeholder="제목을 입력하세요.">
-                    <textarea id="content" name="content">
-                    </textarea>
+                    <textarea id="content" name="content"></textarea>
 
                     <input type="text" id="tag" name="tag" placeholder="태그를 입력하세요. (쉼표 ',' 로 구분)">
                     <div class="buttons">
                         <button id="cancel" type="button">취소</button>
-                        <button id="post" type="submit">게시</button>
+                        <button id="post" type="button">게시</button>
                     </div>
                     
                     </div>
@@ -144,6 +143,44 @@
             </form>
         </section>
     </div>
-    <script src="../static/askQuestion.js"></script>
+    <script>
+        const cancelBtn = document.getElementById("cancel");
+        const postBtn = document.getElementById("post");
+
+        cancelBtn.onclick = function(){
+            window.location.href = 'discussions.html';
+        }
+
+        postBtn.onclick = function(){
+            const contentValue = document.getElementById("content").value;
+
+            // content가 null 또는 undefined인 경우 빈 문자열로 처리
+            const requestBody = {
+                user_id: 0,
+                dcs_title: document.getElementById("title").value,
+                dcs_content: contentValue !== null && contentValue !== undefined ? contentValue : "",
+                cate_id: document.getElementById("tag").value
+            };
+
+            console.log(JSON.stringify(requestBody));
+            fetch('/askQuestion/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(requestBody)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        console.log('데이터를 서버로 전송했습니다.');
+                    }
+                })
+                .catch(error => {
+                    console.error('데이터 전송 중 오류 발생: ' + error);
+                });
+            //var question = new Question(title, content, tagList);
+            //board.addQuestion(question);
+        }
+    </script>
 </body>
 </html>

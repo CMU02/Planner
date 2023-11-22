@@ -3,7 +3,7 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://20.196.217.223:3036/JDevList?serverTimezone=Asia/Seoul
+    url: jdbc:mysql://20.196.217.223:3306/JDevList?serverTimezone=Asia/Seoul
     username: chlguswns63
     password: Dnfltkfkd0306
   thymeleaf:
