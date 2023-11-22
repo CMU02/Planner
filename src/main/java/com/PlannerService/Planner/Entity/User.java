@@ -2,6 +2,7 @@ package com.PlannerService.Planner.Entity;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -20,7 +21,7 @@ public class User
     @Column(name = "user_pw", nullable = false)
     private String pw; // 유저 비밀번호
 
-    @Column(name = "user_email", nullable = false)
+    @Column(name = "user_email", nullable = false, unique = true)
     private String email; // 유저 이메일
 
     @OneToMany(mappedBy = "user")
@@ -28,5 +29,13 @@ public class User
 
     @OneToMany(mappedBy = "user")
     private List<DiscussionsEntity> discussionsEntities = new ArrayList<>(); // 질문 게시판 엔티티 연결 (읽기 전용)
+
+    @Builder
+    public User(String id, String pw, String email)
+    {
+        this.id = id;
+        this.pw = pw;
+        this.email = email;
+    }
 
 }
