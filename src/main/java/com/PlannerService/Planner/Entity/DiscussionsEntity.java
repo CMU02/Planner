@@ -1,6 +1,7 @@
 package com.PlannerService.Planner.Entity;
 
 
+import com.PlannerService.Planner.DTO.DiscussionsDTO;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -31,4 +32,15 @@ public class DiscussionsEntity {
 
     @Column(name="dcs_content", nullable = false)
     private String content; // 질문 내용
+
+    public static DiscussionsEntity toEntity(DiscussionsDTO discussionsDTO){
+        DiscussionsEntity discussionsEntity = new DiscussionsEntity();
+        discussionsEntity.id = discussionsDTO.getDsc_id();
+        discussionsEntity.user = discussionsDTO.getUser_id();
+        discussionsEntity.categories = discussionsDTO.getCate_id();
+        discussionsEntity.title = discussionsDTO.getDcs_title();
+        discussionsEntity.content = discussionsDTO.getDcs_content();
+
+        return discussionsEntity;
+    }
 }
