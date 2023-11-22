@@ -24,6 +24,7 @@ header {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 6px 10px -5px gray;
+    background-color: #f0f0f0;
 }
 header a img{
     margin-left: 50px;
@@ -32,29 +33,60 @@ header a img{
 }
 
 
-header .Login {
-   
-    margin-right: 50px;
+.header-actions {
+    display: flex;
+    align-items: center;
+}
+
+.header-action {
+    margin-right: 20px;
     font-size: 20px;
     color: #000000;
 }
-header .Login a {
+
+.header-action a {
     text-decoration: none;
 }
-header .Account {
-    
-    margin-right: 50px;
-    font-size: 20px;
-    color: #000000;
+.header-action input[type="button"] {
+    background-color: #1155cc;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 20px;
 }
-header .Account a {
-    text-decoration: none;
+
+.header-action input.login {
+    background-color: transparent; /* 배경색 투명으로 변경 */
+    color: #1155cc; /* 글자색을 검정으로 변경 */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
 }
+
+
 h1 {
-   margin-top: 10%;
+   margin-top: 10px;
    text-align: center; 
 } 
 h3, h4 {
-    margin: 2%; /* 각 요소 사이의 간격을 조절 */
+    margin-top: 10px;
+    text-align: center;
+}
+.container {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 80%;
+    height: 50vh;
+    flex-direction: column;
+    background-color: #E1D8FF;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto; /* 가운데 정렬을 위해 추가 */
+    padding: 20px; /* 내부 여백 추가 */
+    border-radius: 10px; /* 모서리를 둥글게 만들기 위해 추가 */
+    margin-top: 10%;
     text-align: center;
 }
