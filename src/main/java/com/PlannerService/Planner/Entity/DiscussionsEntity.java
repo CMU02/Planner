@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 import static jakarta.persistence.FetchType.*;
@@ -13,6 +14,7 @@ import static jakarta.persistence.FetchType.*;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED) // 다른 클래스에서 생성자 호출 막는 애노테이션
 @Getter
+@Setter
 public class DiscussionsEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,16 +33,16 @@ public class DiscussionsEntity {
     private String title; // 질문 제목
 
     @Column(name="dcs_content", nullable = false)
-    private String content; // 질문 내용
+    private String content = ""; // 질문 내용
 
     public static DiscussionsEntity toEntity(DiscussionsDTO discussionsDTO){
+        System.out.println("DTO ->  Service -> Entity");
         DiscussionsEntity discussionsEntity = new DiscussionsEntity();
-        discussionsEntity.id = discussionsDTO.getDsc_id();
+        discussionsEntity.id = discussionsDTO.getDcs_id();
         discussionsEntity.user = discussionsDTO.getUser_id();
         discussionsEntity.categories = discussionsDTO.getCate_id();
         discussionsEntity.title = discussionsDTO.getDcs_title();
         discussionsEntity.content = discussionsDTO.getDcs_content();
-
         return discussionsEntity;
     }
 }
