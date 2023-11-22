@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/discussions.css">
+    <link rel="stylesheet" type="text/css" href="../css/discussions.css">
     <title>JDevList Discussions</title>
 </head>
 <body>
     <!-- 헤더 영역 -->
     <header>
-        <a href="#"><img src="../img/logo/JDevList.svg" alt="로고" class="logo"></a>
+        <a href="#"><img th:src="@{/img/logo/JDevList.svg}" alt="로고" class="logo"></a>
         <div class="search">
             <!-- action는 추후에 백엔드가 개발되면 링크 삽입 -->
             <form action="#" method="get">
@@ -27,37 +27,37 @@
             <ul>
                 <li>
                     <a href="#">
-                        <img src="../img/icon/dashboard.svg" alt="dashboard">
+                        <img th:src="@{/img/icon/dashboard.svg}" alt="dashboard">
                         <p>대쉬보드</p>
                     </a>
                 </li>
                 <li>
-                    <a href="../html/Calendar.html">
-                        <img src="../img/icon/calendar.svg" alt="Calendar">
+                    <a href="Calendar.html">
+                        <img th:src="@{/img/icon/calendar.svg}" alt="Calendar">
                         <p>캘린더</p>   
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="../img/icon/map.svg" alt="RoadMap">
+                        <img th:src="@{/img/icon/map.svg}" alt="RoadMap">
                         <p>로드맵</p>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="../img/icon/comment.svg" alt="Discussion">
+                        <img th:src="@{/img/icon/comment.svg}" alt="Discussion">
                         <p>질문 게시판</p>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="../img/icon/note.svg" alt="Notes">
+                        <img th:src="@{/img/icon/note.svg}" alt="Notes">
                         <p>노트</p>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="../img/icon/help.svg" alt="Help">
+                        <img th:src="@{/img/icon/help.svg}" alt="Help">
                         <p>도움말</p>
                     </a>
                 </li>
@@ -72,10 +72,12 @@
                 <div id="inputboxes">
                     <!--검색창, 태그 검색창-->
                     <div>
-                        <img src="../img/icon/search.svg">
+<!--                        <img src="../static/img/icon/search.svg">-->
+                        <img th:src="@{/img/icon/search.svg}">
                         <input type="text" id="searchQuestionInput" name="searchQuestion" placeholder="궁금한 질문은 검색하세요!">
                     </div><div>
-                        <img src="../img/icon/filter.svg">
+<!--                        <img src="../static/img/icon/filter.svg">-->
+                            <img th:src="@{/img/icon/filter.svg}">
                         <input type="text" id="searchQuestionWithTagInput" name="searchQuestionWithTag" placeholder="태그로 검색하세요!">
                     </div>
                 </div>
@@ -105,6 +107,6 @@
             </div>
         </section>
     </div>
-    <script src="../../static/discussions.js"></script>
+    <script th:src="@{/discussions.js}"></script>
 </body>
 </html>
