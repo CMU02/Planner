@@ -1,28 +1,6 @@
 var board = new Board();
 function AskQuestion(){ //AskQuestion 버튼
-
-    var title = prompt("제목을 입력하세요.");
-    var content = prompt("내용을 입력하세요.");
-    var tag = prompt("태그를 입력하세요. (쉼표 ','로 구분)");
-    var tagList = tag.split(',');
-
-    fetch('/discussions/post', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({title: title, subTitle: content, tags: tagList})
-    })
-        .then(response => {
-            if (response.ok) {
-                console.log('데이터를 서버로 전송했습니다.');
-            }
-        })
-        .catch(error => {
-            console.error('데이터 전송 중 오류 발생: ' + error);
-        });
-    //var question = new Question(title, content, tagList);
-    //board.addQuestion(question);
+    window.location.href = 'AskQuestion.html';
 }
 function Search(){ //Search 버튼
     var keyword = prompt("Enter keyword to search:");
