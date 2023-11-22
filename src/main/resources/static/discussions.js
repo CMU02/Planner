@@ -1,6 +1,6 @@
 var board = new Board();
 function AskQuestion(){ //AskQuestion 버튼
-    window.location.href = 'AskQuestion.html';
+    window.location.href = 'askQuestion';
 }
 function Search(){ //Search 버튼
     var keyword = prompt("Enter keyword to search:");

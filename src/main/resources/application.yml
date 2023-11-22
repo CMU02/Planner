@@ -6,6 +6,12 @@ spring:
     url: jdbc:mysql://20.196.217.223:3036/JDevList?serverTimezone=Asia/Seoul
     username: chlguswns63
     password: Dnfltkfkd0306
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    cache: false
 
 
 
@@ -15,5 +21,4 @@ spring:
       ddl-auto: create
     properties:
       hibernate:
-        format_sql: true
         dialect: org.hibernate.dialect.MySQLDialect
