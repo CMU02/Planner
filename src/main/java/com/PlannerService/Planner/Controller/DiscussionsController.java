@@ -20,7 +20,7 @@ public class DiscussionsController {
     } //질문 올리는 페이지로 이동
 
     @PostMapping("askQuestion/submit")
-    public String postQuestion(@RequestBody DiscussionsDTO dto){
+    public String postQuestion(@ModelAttribute DiscussionsDTO dto){
         System.out.println("데이터 저장 시도");
         System.out.println(dto.getDcs_title());
         discussionsService.save(dto);
