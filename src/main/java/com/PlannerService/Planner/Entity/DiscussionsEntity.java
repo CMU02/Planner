@@ -39,9 +39,6 @@ public class DiscussionsEntity {
 
     public static DiscussionsEntity toEntity(DiscussionsDTO discussionsDTO){
         DiscussionsEntity discussionsEntity = new DiscussionsEntity();
-        //discussionsEntity.user = discussionsDTO.getUser_id();
-        //User userEntity = new User();
-        //discussionsEntity.setUser(userEntity);
         discussionsEntity.title = discussionsDTO.getDcs_title();
         discussionsEntity.content = discussionsDTO.getDcs_content();
         return discussionsEntity;

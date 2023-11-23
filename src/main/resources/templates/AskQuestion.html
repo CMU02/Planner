@@ -172,6 +172,7 @@
             .then(response => {
                 if (response.ok) {
                     console.log('데이터를 서버로 전송했습니다.');
+                    window.location.href = "discussions"
                 }
             })
             .catch(error => {

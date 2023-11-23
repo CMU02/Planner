@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 
 import java.util.List;
@@ -24,14 +25,9 @@ public class DiscussionsController {
         return "askQuestion";
     } //질문 올리는 페이지로 이동
 
-    @GetMapping("/discussions")
-    public List<DiscussionsEntity> UpdateQuestion(Model model){
-        return discussionsService.getAllEntities();
-    }
     @PostMapping("askQuestion/submit")
     public String postQuestion(@RequestBody DiscussionsDTO dto){
         discussionsService.save(dto);
-
         return "discussions";
     }
 }

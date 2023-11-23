@@ -7,7 +7,7 @@ import com.PlannerService.Planner.Repository.CategoriesRepository;
 import com.PlannerService.Planner.Repository.DiscussionsRepository;
 import lombok.RequiredArgsConstructor;
 
-import java.util.List;
+import java.util.*;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -28,5 +28,20 @@ public class DiscussionsService {
 
     public List<DiscussionsEntity> getAllEntities(){
         return discussionsRepository.findAll();
+    }
+    public List<DiscussionsDTO> getQuestions(){
+        List<DiscussionsEntity> entities = getAllEntities();
+        List<DiscussionsDTO> result = new ArrayList<DiscussionsDTO>();
+        for(int i=0; i< entities.size(); i++){
+            DiscussionsDTO dto = new DiscussionsDTO();
+            dto.setDcs_title(entities.get(i).getTitle());
+            dto.setDcs_content(entities.get(i).getContent());
+            dto.setCate_content(entities.get(i).getCategories().getName());
+            dto.setCate_id(entities.get(i).getCategories());
+            dto.setUser_id(entities.get(i).getUser());
+            result.add(dto);
+        }
+
+        return result;
     }
 }
