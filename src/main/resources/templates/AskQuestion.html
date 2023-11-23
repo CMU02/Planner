@@ -131,7 +131,7 @@
                 <input type="text" id="title" name="title" placeholder="제목을 입력하세요.">
                 <textarea id="content" name="content"></textarea>
 
-                <input type="text" id="tag" name="tag" placeholder="태그를 입력하세요. (쉼표 ',' 로 구분)">
+                <input type="text" id="tag" name="tag" placeholder="태그를 입력하세요.">
                 <div class="buttons">
                     <button id="cancel" type="button">취소</button>
                     <button id="post" type="button">게시</button>
@@ -152,13 +152,13 @@
     }
 
     postBtn.onclick = function(){
-        const contentValue = document.getElementById("content").value;
+
 
         // content가 null 또는 undefined인 경우 빈 문자열로 처리
         const requestBody = {
             dcs_title: document.getElementById("title").value,
-            dcs_content: contentValue !== null && contentValue !== undefined ? contentValue : "",
-            cate_id: document.getElementById("tag").value
+            dcs_content: document.getElementById("content").value,
+            cate_content: document.getElementById("tag").value
         };
 
         console.log(JSON.stringify(requestBody));
