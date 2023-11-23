@@ -12,7 +12,47 @@ function Reset(){ //Reset 버튼
 }
 
 
+window.onload = function(){
+    fetch('/discussions/new')
+        .then(response => response.json())
+        .then(result => {
+            var question = result;
+            for (let i = 0; i < question.length; i++) {
+                board.questions.push(question[i]);
+            }
 
+        })
+        .catch(error => console.error("ERROR"));
+
+    const ul = document.getElementById("board_list")
+
+    for(let i=0; i<board.questions.length; i++){
+        let value = JSON.parse(board.questions[i]);
+        let li = document.createElement("li");
+        let first_div = document.createElement("div");
+        first_div.className = "question";
+        let first_p = document.createElement("p");
+        first_p.className = "title";
+        first_p.textContent = value.dcs_title;
+        let second_p = document.createElement("p");
+        second_p.className = "subtitle";
+        second_p.textContent = value.dcs_content;
+
+        let second_div = document.createElement("div")
+        second_div.className="tags";
+
+        let third_div = document.createElement("div")
+        third_div.className="tag";
+        third_div.textContent = value.cate_content;
+
+        ul.appendChild(li);
+        li.appendChild(first_div)
+        first_div.appendChild(first_p);
+        first_div.appendChild(second_p);
+        first_div.appendChild(second_div);
+        second_div.appendChild(third_div);
+    }
+}
 
 function Board(){ //질문들을 저장하는 보드 객체
     this.questions = []; //리스트에 질문을 담음
@@ -23,15 +63,8 @@ function Question(title, content, tag){ //질문 객체
     this.tag = tag; //질문 태그 (리스트로 받을 예정)
     this.timestamp = new Date(); //질문 올린 시간
 }
-/*
-Board.prototype.addQuestion = function(post){ //질문 추가 메서드
-    this.questions.push(post);
-}
-*/
 
-Board.prototype.getQuestion = function() { //질문 가져오기 메서드
-    return this.questions;
-}
+
 Board.prototype.searchQuestion = function(keyword){
     return this.questions.filter(function (question){
         var titleName = String(question.title)
@@ -51,3 +84,4 @@ Board.prototype.searchQuestionWithTag = function (tag) {
         });
     });
 };
+

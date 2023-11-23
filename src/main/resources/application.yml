@@ -17,8 +17,7 @@ spring:
 
   jpa:
     show-sql: true
-    hibernate:
-      ddl-auto: create
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
+    hibernate: #create 실행할때마다 DB 다 지우고 새로시작, update 변경한 부분만 반영
+      ddl-auto: create #매우 중요, 초기 테스트는 create나 update, 배포시 none, validate
+
+

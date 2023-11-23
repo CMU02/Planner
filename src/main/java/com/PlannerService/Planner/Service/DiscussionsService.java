@@ -29,19 +29,18 @@ public class DiscussionsService {
     public List<DiscussionsEntity> getAllEntities(){
         return discussionsRepository.findAll();
     }
-    public List<DiscussionsDTO> getQuestions(){
+    public String getQuestions(){
         List<DiscussionsEntity> entities = getAllEntities();
-        List<DiscussionsDTO> result = new ArrayList<DiscussionsDTO>();
+
+        List<HashMap<String, String>> result = new ArrayList<>();
         for(int i=0; i< entities.size(); i++){
-            DiscussionsDTO dto = new DiscussionsDTO();
-            dto.setDcs_title(entities.get(i).getTitle());
-            dto.setDcs_content(entities.get(i).getContent());
-            dto.setCate_content(entities.get(i).getCategories().getName());
-            dto.setCate_id(entities.get(i).getCategories());
-            dto.setUser_id(entities.get(i).getUser());
-            result.add(dto);
+            HashMap<String, String> hash = new HashMap<String, String>();
+            hash.put("dcs_title",entities.get(i).getTitle());
+            hash.put("dcs_content",entities.get(i).getContent());
+            hash.put("cate_content",entities.get(i).getCategories().getName());
+            result.add(hash);
         }
 
-        return result;
+        return result.toString();
     }
 }
