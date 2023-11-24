@@ -18,7 +18,7 @@
 .box input{
     width: 150px;
     height: 50px;
-    font-size: 12px; /* 수정: 폰트 크기를 줄임 */
+    font-size: 15px; /* 수정: 폰트 크기를 줄임 */
     color: black;
     background-color: white;
     border: 1px solid #1155cc;
