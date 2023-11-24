@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/FrontRm.css">
+    <title>JDevList Calendar</title>
+</head>
+<body>
+<!-- 헤더 영역 -->
+<header>
+    <a href="#"><img src="../static/img/logo/JDevList.svg" alt="로고" class="logo"></a>
+    <div class="search">
+        <!-- action는 추후에 백엔드가 개발되면 링크 삽입 -->
+        <form action="#" method="get">
+            <!-- placeholder 추후에 바뀔수 있음. -->
+            <input type="text" name="t" placeholder="검색어를 입력하세요.">
+        </form>
+    </div>
+    <div class="user-profile">
+        <a href="#"><p>User Nickname</p></a>
+    </div>
+</header>
+<div class="container">
+    <!-- 사이드 바 영역 -->
+    <aside class="side-bar">
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="../static/img/icon/dashboard.svg" alt="dashboard">
+                    <p>대쉬보드</p>
+                </a>
+            </li>
+            <li>
+                <a href="Calendar.html">
+                    <img src="../static/img/icon/calendar.svg" alt="Calendar">
+                    <p>캘린더</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../static/img/icon/map.svg" alt="RoadMap">
+                    <p>로드맵</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../static/img/icon/comment.svg" alt="Discussion">
+                    <p>질문 게시판</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../static/img/icon/note.svg" alt="Notes">
+                    <p>노트</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../static/img/icon/help.svg" alt="Help">
+                    <p>도움말</p>
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <!-- 메인 컨텐츠 영역 -->
+    <section id="RoadMap">
+        <div class="main-container">
+            <div>
+                <h1>Frontend 로드맵</h1>
+            </div>
+
+            <div>
+                <h3>Step 1. 인터넷</h3>
+            </div>
+            <div class="wrapBox">
+                <div class="box">
+                    <a href="https://cs.fyi/guide/how-does-internet-work">
+                        <!-- 네모 박스 내용 -->
+                        <input type="button" value="인터넷의 작동 방식">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://cs.fyi/guide/http-in-depth">
+                        <!-- 네모 박스 내용 -->
+                        <input type="button" value="HTTP는 무엇인가요?">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_domain_name">
+                        <!-- 네모 박스 내용 -->
+                        <input type="button" value="도메인 이름이란?">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://www.youtube.com/watch?v=htbY9-yggB0">
+                        <!-- 네모 박스 내용 -->
+                        <input type="button" value="호스팅이란?">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://www.cloudflare.com/en-gb/learning/dns/what-is-dns/">
+                        <!-- 네모 박스 내용 -->
+                        <input type="button" value="DNS의 작동 방식">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://web.dev/articles/howbrowserswork?hl=ko">
+                        <!-- 네모 박스 내용 -->
+                        <input type="button" value="브라우저의 작동 방식">
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <h3>Step 2. HTML</h3>
+            </div>
+            <div class="wrapBox">
+                <div class="box">
+                    <a href="https://www.w3schools.com/java/">
+                        <!-- 네모 박스 내용 -->
+                        <input type="button" value="JAVA">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://www.w3schools.com/cs/index.php">
+                        <!-- 네모 박스 내용 -->
+                        <input type="button" value="C#">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://www.w3schools.com/js/">
+                        <!-- 네모 박스 내용 -->
+                        <input type="button" value="JavaScirpt">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://www.w3schools.com/python/">
+                        <!-- 네모 박스 내용 -->
+                        <input type="button" value="Python">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://www.php.net/">
+                        <!-- 네모 박스 내용 -->
+                        <input type="button" value="PHP">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://www.ruby-lang.org/en/documentation/quickstart/">
+                        <!-- 네모 박스 내용 -->
+                        <input type="button" value="Ruby">
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3>Step 3. CSS</h3>
+            </div>
+            <div class="wrapBox">
+                <div class="box">
+                    <a href="https://cs.fyi/guide/git-cheatsheet">
+                        <input type="button" value="Git">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://flexboxfroggy.com/#ko">
+                        <input type="button" value="레이아웃 만들기">
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3>Step 4. Repo hostiong sercvices</h3>
+            </div>
+            <div class="wrapBox">
+                <div class="box">
+                    <a href="https://learngitbranching.js.org/?locale=en_us">
+                        <input type="button" value="GitHub">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://about.gitlab.com/">
+                        <input type="button" value="GitLab">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud">
+                        <input type="button" value="Bitbucket">
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3>Step 5. OS and General Knowledge</h3>
+            </div>
+            <div class="wrapBox">
+                <div class="box">
+                    <a href="https://learngitbranching.js.org/?locale=en_us">
+                        <input type="button" value="Terminal Usage">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://about.gitlab.com/">
+                        <input type="button" value="GitLab">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://pubs.opengroup.org/onlinepubs/9699919799/">
+                        <input type="button" value="POSIX Basics">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://www.learnenough.com/command-line-tutorial">
+                        <input type="button" value="Basic Terminal Commands">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://codex.cs.yale.edu/avi/os-book/OS10/index.html">
+                        <input type="button" value="How OSs work in General">
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3>Step 6. Relational Databases</h3>
+            </div>
+            <div class="wrapBox">
+                <div class="box">
+                    <a href="https://www.postgresqltutorial.com/">
+                        <input type="button" value="PostgreSQL">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://www.w3schools.com/mySQl/default.asp">
+                        <input type="button" value="MySQL">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://mariadb.org/">
+                        <input type="button" value="MariaDB">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://learn.microsoft.com/en-us/sql/sql-server/tutorials-for-sql-server-2016?view=sql-server-ver15">
+                        <input type="button" value="MS SQL">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://docs.oracle.com/en/database/index.html">
+                        <input type="button" value="Oracle">
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3>Step 7. NoSQL Databases</h3>
+            </div>
+            <div class="wrapBox">
+                <div class="box">
+                    <a href="https://roadmap.sh/mongodb">
+                        <input type="button" value="MongoDB">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://www.w3schools.com/mySQl/default.asp">
+                        <input type="button" value="InfluxDB">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://cassandra.apache.org/_/index.html">
+                        <input type="button" value="Cassandra">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://en.wikipedia.org/wiki/Key%E2%80%93value_database">
+                        <input type="button" value="Redis">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://www.freecodecamp.org/news/graph-database-vs-relational-database/">
+                        <input type="button" value="Neo4j">
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3>Step 8. More about Databases</h3>
+            </div>
+            <div class="wrapBox">
+                <div class="box">
+                    <a href="https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping">
+                        <input type="button" value="ORMs">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://retool.com/blog/whats-an-acid-compliant-database">
+                        <input type="button" value="ACID">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://fauna.com/blog/database-transaction">
+                        <input type="button" value="Transactions">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://medium.com/doctolib/understanding-and-fixing-n-1-query-30623109fe89">
+                        <input type="button" value="N+1Problem">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://www.guru99.com/database-normalization.html">
+                        <input type="button" value="Normalization">
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3>Step 9. Scaling Databases</h3>
+            </div>
+            <div class="wrapBox">
+                <div class="box">
+                    <a href="https://www.freecodecamp.org/news/database-indexing-at-a-glance-bb50809d48bd/">
+                        <input type="button" value="Databases Indexes">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://www.youtube.com/watch?v=fUrKt-AQYtE">
+                        <input type="button" value="Data Replication">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://en.wikipedia.org/wiki/Shard_(database_architecture)">
+                        <input type="button" value="Sharding Strategies">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://mwhittaker.github.io/blog/an_illustrated_proof_of_the_cap_theorem/">
+                        <input type="button" value="CAP Theorem">
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3>Step 10. Learn about APIs</h3>
+            </div>
+            <div class="wrapBox">
+                <div class="box">
+                    <a href="https://www.youtube.com/watch?v=MiOSzpfP1Ww&t=236s">
+                        <input type="button" value="HATEOAS">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://swagger.io/docs/specification/about/">
+                        <input type="button" value="Open API Specs">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://roadmap.sh/guides/sso">
+                        <input type="button" value="Authentication">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://www.redhat.com/en/topics/api/what-is-a-rest-api">
+                        <input type="button" value="REST">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://stackoverflow.com/questions/17769011/how-does-cookie-based-authentication-work">
+                        <input type="button" value="Cookie Based">
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3>Step 11. Caching</h3>
+            </div>
+            <div class="wrapBox">
+                <div class="box">
+                    <a href="https://www.youtube.com/watch?v=HiBDZgTNpXY">
+                        <input type="button" value="Client Side">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://www.starwindsoftware.com/resource-library/server-side-caching/">
+                        <input type="button" value="Server Side">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://en.wikipedia.org/wiki/Content_delivery_network">
+                        <input type="button" value="CDN">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://redis.io/">
+                        <input type="button" value="Redis">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://github.com/memcached/memcached#readme">
+                        <input type="button" value="Memcached">
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3>Step 12. Web Security Knowledge</h3>
+            </div>
+            <div class="wrapBox">
+                <div class="box">
+                    <a href="https://www.techtarget.com/searchsecurity/definition/MD5">
+                        <input type="button" value="MD5 and why not to use it">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://en.wikipedia.org/wiki/Scrypt">
+                        <input type="button" value="SHA Family">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://en.wikipedia.org/wiki/Content_delivery_network">
+                        <input type="button" value="scrypt">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://www.cloudflare.com/en-gb/learning/ssl/what-is-https/">
+                        <input type="button" value="HTTPS">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://web.dev/articles/csp?hl=ko">
+                        <input type="button" value="CSP">
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3>Step 13. Testing</h3>
+            </div>
+            <div class="wrapBox">
+                <div class="box">
+                    <a href="https://thenewstack.io/how-to-integrate-and-test-your-tech-stack/">
+                        <input type="button" value="Integration Testing">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://www.guru99.com/unit-testing-guide.html">
+                        <input type="button" value="Unit Testing">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://www.guru99.com/functional-testing.html">
+                        <input type="button" value="Functional Testing">
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3>Step 14. Design and Development Principles</h3>
+            </div>
+            <div class="wrapBox">
+                <div class="box">
+                    <a href="https://springframework.guru/gang-of-four-design-patterns/">
+                        <input type="button" value="GOF Design Patterns">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://www.guru99.com/test-driven-development.html">
+                        <input type="button" value="Test Driven Development">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs">
+                        <input type="button" value="CQRS">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://martinfowler.com/eaaDev/EventSourcing.html">
+                        <input type="button" value="Event Sourcing">
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3>Step 15. Architectural Patterns</h3>
+            </div>
+            <div class="wrapBox">
+                <div class="box">
+                    <a href="https://microservices.io/patterns/monolithic.html">
+                        <input type="button" value="Monolithic Apps">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://smartbear.com/learn/api-design/microservices/">
+                        <input type="button" value="microservices">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://docs.oasis-open.org/soa-rm/soa-ra/v1.0/soa-ra.html">
+                        <input type="button" value="SOA">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://aws.amazon.com/ko/serverless/">
+                        <input type="button" value="Serverless">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://www.nginx.com/blog/what-is-a-service-mesh/">
+                        <input type="button" value="Service Mesh">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://12factor.net/">
+                        <input type="button" value="Tiwelve Factor Apps">
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3>Step 16. Message Brokers</h3>
+            </div>
+            <div class="wrapBox">
+                <div class="box">
+                    <a href="https://www.rabbitmq.com/getstarted.html">
+                        <input type="button" value="RabbitMQ">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://kafka.apache.org/quickstart">
+                        <input type="button" value="Kafka">
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3>Step 17. Containerization vs Virtualization</h3>
+            </div>
+            <div class="wrapBox">
+                <div class="box">
+                    <a href="https://kubernetes.io/">
+                        <input type="button" value="kubernetes">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://docs.docker.com/">
+                        <input type="button" value="Docker">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://linuxcontainers.org/lxc/introduction/">
+                        <input type="button" value="LXC">
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3>Step 18. GraphQL</h3>
+            </div>
+            <div class="wrapBox">
+                <div class="box">
+                    <a href="https://www.apollographql.com/docs/">
+                        <input type="button" value="Apolio">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://relay.dev/docs/">
+                        <input type="button" value="Relay Modern">
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3>Step 19. Web Servers</h3>
+            </div>
+            <div class="wrapBox">
+                <div class="box">
+                    <a href="https://nginx.org/">
+                        <input type="button" value="Nginx">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://httpd.apache.org/">
+                        <input type="button" value="Apache">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://caddyserver.com/">
+                        <input type="button" value="Caddy">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://www.iis.net/">
+                        <input type="button" value="MS IIS">
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3>Step 20. Building for Scale</h3>
+            </div>
+            <div class="wrapBox">
+                <div class="box">
+                    <a href="https://www.yottaa.com/performance-monitoring-backend-vs-front-end-solutions/">
+                        <input type="button" value="Instrumentation">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://www.sumologic.com/glossary/telemetry/">
+                        <input type="button" value="Monitoring">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://www.sumologic.com/glossary/telemetry/">
+                        <input type="button" value="Telemetry">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://newrelic.com/blog/best-practices/design-software-for-graceful-degradation">
+                        <input type="button" value="Graceful Degradation">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="https://roadmap.sh/devops">
+                        <input type="button" value="DevOps Roadmap">
+                    </a>
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+</div>
+</section>
+</div>
+</body>
+</html>

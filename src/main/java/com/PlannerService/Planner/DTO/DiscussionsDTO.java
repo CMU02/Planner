@@ -16,4 +16,5 @@ public class DiscussionsDTO {
     private Categories cate_id;
     private String dcs_title;
     private String dcs_content;
+    private String cate_content;
 }

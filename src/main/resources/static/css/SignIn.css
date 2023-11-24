@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Pretendard-variable';
-    src: url(/src/main/resources/template/img/font/PretendardVariable.ttf);
+    src: url(../img/font/PretendardVariable.ttf);
 }
 
 * { 

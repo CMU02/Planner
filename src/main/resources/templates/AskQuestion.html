@@ -15,7 +15,7 @@
             width:100%;
             height:100%;
             border: none;
-            
+
             display: inline-flex;
             justify-content: center;
         }
@@ -60,7 +60,7 @@
         .buttons :nth-last-child(2){
             background-color: #EC8F88;
         }
-       
+
     </style>
 </head>
 <body>
@@ -120,67 +120,67 @@
             </li>
         </ul>
     </aside>
-        <!-- 메인 컨텐츠 영역 -->
-        <section id="discussion-wrap">
-            <form action="/discussions/submit" method="post">
-                <div>
-                    <div class="p">
-                        <p>질문하기</p>
-                    </div>
-        
-                    <input type="text" id="title" name="title" placeholder="제목을 입력하세요.">
-                    <textarea id="content" name="content"></textarea>
+    <!-- 메인 컨텐츠 영역 -->
+    <section id="discussion-wrap">
+        <form action="/discussions/submit" method="post">
+            <div>
+                <div class="p">
+                    <p>질문하기</p>
+                </div>
 
-                    <input type="text" id="tag" name="tag" placeholder="태그를 입력하세요. (쉼표 ',' 로 구분)">
-                    <div class="buttons">
-                        <button id="cancel" type="button">취소</button>
-                        <button id="post" type="button">게시</button>
-                    </div>
-                    
-                    </div>
-                
-        
-            </form>
-        </section>
-    </div>
-    <script>
-        const cancelBtn = document.getElementById("cancel");
-        const postBtn = document.getElementById("post");
+                <input type="text" id="title" name="title" placeholder="제목을 입력하세요.">
+                <textarea id="content" name="content"></textarea>
 
-        cancelBtn.onclick = function(){
-            window.location.href = 'discussions.html';
-        }
+                <input type="text" id="tag" name="tag" placeholder="태그를 입력하세요.">
+                <div class="buttons">
+                    <button id="cancel" type="button">취소</button>
+                    <button id="post" type="button">게시</button>
+                </div>
 
-        postBtn.onclick = function(){
-            const contentValue = document.getElementById("content").value;
+            </div>
 
-            // content가 null 또는 undefined인 경우 빈 문자열로 처리
-            const requestBody = {
-                user_id: 0,
-                dcs_title: document.getElementById("title").value,
-                dcs_content: contentValue !== null && contentValue !== undefined ? contentValue : "",
-                cate_id: document.getElementById("tag").value
-            };
 
-            console.log(JSON.stringify(requestBody));
-            fetch('/askQuestion/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(requestBody)
+        </form>
+    </section>
+</div>
+<script>
+    const cancelBtn = document.getElementById("cancel");
+    const postBtn = document.getElementById("post");
+
+    cancelBtn.onclick = function(){
+        window.location.href = 'discussions'; //Get으로 바꿔야함..
+    }
+
+    postBtn.onclick = function(){
+
+
+        // content가 null 또는 undefined인 경우 빈 문자열로 처리
+        const requestBody = {
+            dcs_title: document.getElementById("title").value,
+            dcs_content: document.getElementById("content").value,
+            cate_content: document.getElementById("tag").value
+        };
+
+        console.log(JSON.stringify(requestBody));
+        fetch('/askQuestion/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestBody)
+        })
+            .then(response => {
+                if (response.ok) {
+                    console.log('데이터를 서버로 전송했습니다.');
+                    window.location.href = "discussions"
+                }
             })
-                .then(response => {
-                    if (response.ok) {
-                        console.log('데이터를 서버로 전송했습니다.');
-                    }
-                })
-                .catch(error => {
-                    console.error('데이터 전송 중 오류 발생: ' + error);
-                });
-            //var question = new Question(title, content, tagList);
-            //board.addQuestion(question);
-        }
-    </script>
+            .catch(error => {
+                console.error('데이터 전송 중 오류 발생: ' + error);
+            });
+        //var question = new Question(title, content, tagList);
+        //board.addQuestion(question);
+    }
+</script>
 </body>
 </html>
