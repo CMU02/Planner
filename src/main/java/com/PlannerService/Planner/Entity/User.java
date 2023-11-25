@@ -1,28 +1,35 @@
 package com.PlannerService.Planner.Entity;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED) // 다른 클래스에서 생성자 호출 막는 애노테이션
-public class User
+@Data
+@Table(name = "user")
+public class User implements UserDetails
 {
-    @Id
-    @Column(name = "user_id", nullable = false)
-    private String id; // 유저 아이디
+    @Id @Column(name = "user_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @Column(name = "user_pw", nullable = false)
-    private String pw; // 유저 비밀번호
+    @Column(name = "user_name")
+    private String name;
 
-    @Column(name = "user_email", nullable = false, unique = true)
-    private String email; // 유저 이메일
+    @Column(name = "user_password")
+    private String password;
+
+    @Column(name = "user_email")
+    private String email;
+
+    @Enumerated(value = EnumType.STRING)
+    private Role role;
 
     @OneToMany(mappedBy = "user")
     private List<Plan> plans = new ArrayList<>(); // 일정 관리 엔티티 연결 (읽기 전용)
@@ -30,12 +37,41 @@ public class User
     @OneToMany(mappedBy = "user")
     private List<DiscussionsEntity> discussionsEntities = new ArrayList<>(); // 질문 게시판 엔티티 연결 (읽기 전용)
 
-    @Builder
-    public User(String id, String pw, String email)
+
+    // == 유저 디테일 메서드 == //
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities()
     {
-        this.id = id;
-        this.pw = pw;
-        this.email = email;
+        return List.of(new SimpleGrantedAuthority(role.name()));
     }
 
+    @Override
+    public String getUsername()
+    {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired()
+    {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked()
+    {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired()
+    {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled()
+    {
+        return true;
+    }
 }
