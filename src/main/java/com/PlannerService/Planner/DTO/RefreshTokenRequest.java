@@ -6,5 +6,4 @@ import lombok.Data;
 public class RefreshTokenRequest
 {
     private String token;
-
 }
