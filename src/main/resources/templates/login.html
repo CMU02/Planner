@@ -12,20 +12,42 @@
   </header>
   <div class="container">
     <div class="loginPage">
-      <h1 class="title">로그인</h2>
+      <h1 class="title">로그인</h1>
         <!-- action는 추후에 백엔드가 개발되면 링크 삽입 -->
-        <form action="#" method="post">
-          <div class="tag-name">아이디</div>
-            <input type="text" name="userID" class="form-Input">
+        <form method="post" id="form">
+          <div class="tag-name">이메일</div>
+            <input type="email" name="email" class="form-Input">
           <div class="tag-name">비밀번호</div>
-            <input type="password" name="userPassword" class="form-input">
+            <input type="password" name="password" class="form-input">
           <div id="form-btn">
-            <input type="submit" value="Sign in">
+            <button type="submit">로그인</button>
           </div>
         </form>
-        <a href="#" class="forgotIDPW"><p>아이디 및 비밀번호를 잃어버리셨나요?</p></a>
-        <a href="createdAccount.html" class="create-account"><p>회원가입 하러 가기</p></a>
+        <a href="/signUp" class="create-account"><p>회원가입 하러 가기</p></a>
     </div>
   </div>
+
+  <script>
+    const form = document.getElementById('form')
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const payload = new FormData(form);
+      const data = Object.fromEntries(payload)
+
+      fetch('/api/v1/auth/signin', {
+          method: 'POST',
+          headers: {
+            'Content-Type' : 'application/json'
+          },
+          body: JSON.stringify(data)
+      }).then(() => {
+          location.replace("/")
+      }).catch(() => {
+        alert('로그인 실패 했습니다.')
+      })
+    })
+  </script>
 </body>
 </html>
