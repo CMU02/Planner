@@ -1,8 +1,8 @@
 package com.PlannerService.Planner.Service;
 
-import com.PlannerService.Planner.DTO.UserDTO;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 public interface UserService
 {
-    String join(UserDTO userDTO);
+    UserDetailsService userDetailsService();
 }

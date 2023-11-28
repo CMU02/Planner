@@ -20,7 +20,7 @@ public class Plan
     private Long id; // 일정 아이디
 
     @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "member_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user; // 유저 아이디 외래키
 
     @Column(name = "plan_title", nullable = false)

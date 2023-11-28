@@ -1,6 +1,8 @@
 server:
   port: 8081
 spring:
+  mvc:
+    static-path-pattern: /static/**
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://20.196.217.223:3306/JDevList?serverTimezone=Asia/Seoul
