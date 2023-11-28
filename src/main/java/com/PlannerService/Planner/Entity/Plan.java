@@ -17,20 +17,20 @@ public class Plan
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "plan_id", nullable = false)
+    @Column(name = "plan_id")
     private Long id; // 일정 아이디
 
     @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id")
     private User user; // 유저 아이디 외래키
 
-    @Column(name = "plan_title", nullable = false)
+    @Column(name = "plan_title")
     private String title; // 일정 제목
 
-    @Column(name = "plan_start_time", nullable = false)
+    @Column(name = "plan_start_time")
     private LocalDateTime startTime; // 일정 시작 날짜시간
 
-    @Column(name = "plan_end_time", nullable = false)
+    @Column(name = "plan_end_time")
     private LocalDateTime endTime; // 일정 종료 날짜시간
 
     @Column(name = "plan_memo")

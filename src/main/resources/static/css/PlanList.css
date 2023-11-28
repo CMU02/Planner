@@ -66,10 +66,11 @@ nav .Plan-List .card .card-body .content {
     /* javascript 로 버튼을 눌러 display:block으로 바꾸기 */
     display: block;
     border-radius: 15px 15px;
-    box-shadow: 0px 8.5px 10px -2px gray;
+    box-shadow: 0px 8.5px 10px -2px #707070;
 }
 
 .container .createPlan-wrap form {
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -83,7 +84,7 @@ nav .Plan-List .card .card-body .content {
     padding-top: 1.5%;
 }
 .container .createPlan-wrap form .title input {
-    width: 65%;
+    width: 95%;
     height: 5vh;
 }
 .container .createPlan-wrap form .dateTime {
@@ -95,7 +96,7 @@ nav .Plan-List .card .card-body .content {
     padding-left: 5%;
 }
 .container .createPlan-wrap form .dateTime .DateTime input {
-    width: 95%;
+    width: 90%;
     height: 3.5vh;
 }
 .container .createPlan-wrap form .memo textarea {

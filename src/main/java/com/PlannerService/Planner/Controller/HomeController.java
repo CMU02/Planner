@@ -6,11 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
-//    @GetMapping("/")
-//    public String index(){
-//
-//        return "discussions";
-//    }
+    @GetMapping("/discussions")
+    public String dcs(){
+        return "discussions";
+    }
     @GetMapping("/") // JDevList 메인 홈페이지
     public String mainPage() {
         return "index";
@@ -23,6 +22,8 @@ public class HomeController {
     public String signIn() {
         return "login";
     }
-
-
+    @GetMapping("/calendar")
+    public String plan() {
+        return "Calendar";
+    }
 }

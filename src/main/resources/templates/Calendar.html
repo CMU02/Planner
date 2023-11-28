@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,16 +84,16 @@
                     <hr>
                     <div class="card-body">
                         <!-- 일정 상세 내용들 -->
-                        <div class="startDate">시작날짜 : 2023-11-17</div>
-                        <div class="lastDate">종료 날짜 : 2023-11-18</div>
-                        <div class="content">Hello word</div>
+                        <div class="startDate"></div>
+                        <div class="lastDate"></div>
+                        <div class="content"></div>
                     </div>
                 </div>
             </div>
         </nav>
 
         <div class="createPlan-wrap">
-            <form action="#" method="post" id="create-btn">
+            <form method="post" id="form">
                 <div class="title">
                     <h3>제목</h3>
                     <input type="text" placeholder="제목" name="title" id="title">
@@ -101,11 +101,11 @@
                 <div class="dateTime">
                     <div class="DateTime">
                         <h3>시작</h3>
-                        <input type="datetime-local" name="start" id="start">
+                        <input type="datetime-local" name="startDateTime" id="start">
                     </div>
                     <div class="DateTime">
                         <h3>종료</h3>
-                        <input type="datetime-local" name="end" id="end">
+                        <input type="datetime-local" name="endDateTime" id="end">
                     </div>
                     <div class="memo">
                         <h3>메모 내용</h3>
@@ -117,6 +117,6 @@
         </div>
     </div>
 
-    <script src="/src/main/resources/static/calendar.js"></script>
+    <script src="../static/calendar.js"></script>
 </body>
 </html>
