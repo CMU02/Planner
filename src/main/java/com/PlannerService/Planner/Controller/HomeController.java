@@ -6,9 +6,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
-    @GetMapping("/")
-    public String index(){
-
-        return "discussions";
+//    @GetMapping("/")
+//    public String index(){
+//
+//        return "discussions";
+//    }
+    @GetMapping("/") // JDevList 메인 홈페이지
+    public String mainPage() {
+        return "index";
+    }
+    @GetMapping("/signUp") // 회원가입 페이지
+    public String signUp() {
+        return "createdAccount";
     }
 }
