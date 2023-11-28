@@ -28,6 +28,7 @@
                 </div>
                 <input type="email" name="email" placeholder="example@example.com" class="form-input">
                 <div></div>
+
                 <button type="submit" class="form-submit">계정 만들기</button>
             </form>
         </div>
@@ -40,16 +41,19 @@
             event.preventDefault();
 
             const payload = new FormData(form);
+            const data = Object.fromEntries(payload)
 
             fetch("/api/v1/auth/signup", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(payload)
+                body: JSON.stringify(data)
             }).then(() => {
                 alert('회원가입을 성공하셨습니다.')
-                // location.replace("/")
+                location.replace("/")
+            }).catch((err) => {
+                alert('회원가입을 성공 못했습니다...')
             })
         })
     </script>

@@ -2,6 +2,7 @@ package com.PlannerService.Planner.Entity;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -34,4 +35,12 @@ public class Plan
 
     @Column(name = "plan_memo")
     private String memo; // 일정 메모
+
+    @Builder // 빌더 패턴으로 객체 생성
+    public Plan(String title, LocalDateTime startTime, LocalDateTime endTime, String memo) {
+        this.title = title;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.memo = memo;
+    }
 }

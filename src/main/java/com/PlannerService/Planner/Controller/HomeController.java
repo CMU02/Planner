@@ -19,4 +19,10 @@ public class HomeController {
     public String signUp() {
         return "createdAccount";
     }
+    @GetMapping("/signIn") // 로그인 페이지
+    public String signIn() {
+        return "login";
+    }
+
+
 }
