@@ -5,6 +5,9 @@ import com.PlannerService.Planner.Entity.Categories;
 import com.PlannerService.Planner.Entity.DiscussionsEntity;
 import com.PlannerService.Planner.Repository.CategoriesRepository;
 import com.PlannerService.Planner.Repository.DiscussionsRepository;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import lombok.RequiredArgsConstructor;
 
 import java.util.*;
@@ -39,8 +42,17 @@ public class DiscussionsService {
             hash.put("dcs_content",entities.get(i).getContent());
             hash.put("cate_content",entities.get(i).getCategories().getName());
             result.add(hash);
+
         }
 
-        return result.toString();
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            return objectMapper.writeValueAsString(result);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            return "Error converting to JSON";
+        }
     }
+
+
 }

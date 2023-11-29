@@ -6,10 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
-    @GetMapping("/discussions")
-    public String dcs(){
-        return "discussions";
-    }
+
     @GetMapping("/") // JDevList 메인 홈페이지
     public String mainPage() {
         return "index";
