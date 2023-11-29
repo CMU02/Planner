@@ -1,5 +1,5 @@
 .main-container {
-    width: 900px;
+    width: 130vh;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
@@ -7,36 +7,44 @@
 
 .Tasks {
     width: 100%;
-    max-width: 700px;
-    height: 250px;
+    max-width: 100vh;
+    height: 35vh;
     background-color: #fff;
-    margin-left: 30px;
-    margin-top: 10px;
+    margin-left: 3vh;
+    margin-top: 1vh;
 }
 
 .RoadMap {
     width: 100%;
-    max-width: 700px;
-    height: 300px;
+    max-width: 100vh;
+    height: 35vh;
     background-color: #fff;
-    margin-left: 30px;
-    margin-top: 10px;
+    margin-left: 3vh;
+    margin-top: 1vh;
 }
 
 .Calendar {
-    width: 400px;
-    height: 620px;
+    width: 68vh;
+    height: 77.5vh;
     background-color: #fff;
-    margin-top: 10px;
+    margin-top: 1vh;
+}
+.wrapBox {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5vh;
+    margin-left: 2.5vh;
 }
 .wrapBox h1 {
-    margin-top: 20px;
-    margin-left: 30px;
+    margin-top: 2vh;
+    margin-left: 3vh;
 }
 .wrapBox2 {
     display: flex;
     flex-direction: column;
+    margin-top: 0.5vh;
+    margin-right: 5vh;
 }
 .wrapBox2 h1 {
-    margin-top: 20px;
+    margin-top: 2vh;
 }
