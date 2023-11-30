@@ -303,11 +303,11 @@
                 <!--검색창, 태그 검색창-->
                 <div>
                     <!--                        <img src="../static/img/icon/search.svg">-->
-                    <img src="..static/img/icon/search.svg">
+                    <img src="../static/img/icon/search.svg">
                     <input type="text" id="searchQuestionInput" name="searchQuestion" placeholder="궁금한 질문은 검색하세요!">
                 </div><div>
                 <!--                        <img src="../static/img/icon/filter.svg">-->
-                <img src="..static/img/icon/filter.svg">
+                <img src="../static/img/icon/filter.svg">
                 <input type="text" id="searchQuestionWithTagInput" name="searchQuestionWithTag" placeholder="태그로 검색하세요!">
             </div>
             </div>
@@ -423,10 +423,11 @@
         }
         const ul = document.getElementById("board_list")
 
-        for(let i=0; i<board.questions.length; i++){
+        for(let i=0; i<board.questions.length; i++){ //질문 수만큼 생성
             let li = document.createElement("li");
             let first_div = document.createElement("div");
             first_div.className = "question";
+            first_div.id = data[i].dcs_id;
             let first_p = document.createElement("p");
             first_p.className = "title";
             first_p.textContent = data[i].dcs_title;
@@ -456,7 +457,7 @@
         this.title = title; //질문 제목
         this.content = content; //질문 내용
         this.tag = tag; //질문 태그 (리스트로 받을 예정)
-        this.timestamp = new Date(); //질문 올린 시간
+        this.id;
     }
 
 </script>

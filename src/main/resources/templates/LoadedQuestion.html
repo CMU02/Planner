@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <title>JDevList Discussions</title>
+  <style>
+
+    /* 珥덇린 �명똿 */
+    * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+    body, ul, li, a, h2{
+      font-family: 'Pretendard-variable';
+      list-style: none;
+      text-decoration: none;
+    }
+
+    /* �ㅻ뜑 */
+    header {
+      position: relative;
+      width: 100%;
+      height: 10vh;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 6px 10px -5px gray;
+    }
+    header a img{
+      margin-left: 50px;
+      width: 216px;
+      height: 63px;
+    }
+    header .search form input {
+      width: 500px;
+      height: 50px;
+      border: 0px;
+      border-radius: 25px;
+      background-color: #ecf0f8;
+    }
+    header .search form input[type="text"] {
+      padding-left: 25px;
+      font-size: 17px;
+    }
+    header .user-profile {
+      margin-right: 50px;
+      font-size: 20px;
+      color: #000000;
+    }
+    header .user-profile a {
+      text-decoration: none;
+    }
+
+    .container {
+      z-index: -1;
+      width: 100%;
+      height: 90vh;
+      display: flex;
+      background-color: #ecf0f8;
+    }
+    /* �ъ씠�� 諛� CSS */
+    .side-bar {
+      width: 14.6%;
+      height: 85vh;
+      box-shadow: 10px 5px 10px -5px gray;
+      margin-top: 15px;
+      border-radius: 10px;
+      background-color: #ffffff;
+      /* transform: translate(-230px, 0);
+      transition: 0.7s; */
+    }
+
+    /* .side-bar:hover {
+        transform: translate(0px, 0px)
+    } */
+
+    .side-bar ul {
+      padding-top: 2.6vh;
+      padding-left: 0px;
+    }
+    .side-bar ul li {
+      width: 100%;
+      height: 8vh;
+      display: flex;
+    }
+    .side-bar ul li:hover {
+      background-color: #1155cc;
+    }
+    .side-bar ul li:nth-child(6) {
+      margin-top: 32vh;
+    }
+
+    .side-bar ul li a {
+      display: flex;
+      align-items: center;
+    }
+    .side-bar ul li a img {
+      width: 40px;
+      height: 40px;
+      padding-left: 5px;
+    }
+    .side-bar ul li a p {
+      padding-left: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #000000;
+    }
+
+    section {
+      margin-left: 2%;
+      margin-top: 1.0%;
+      width: 81%;
+      height: 84.5vh;
+      background-color: #ffffff;
+      display:inline-grid;
+      align-content:flex-start;
+      overflow:hidden;
+      padding:2%;
+    }
+
+
+
+  </style>
+</head>
+<body>
+<!-- 헤더 영역 -->
+<header>
+  <a href="#"><img src="../static/img/logo/JDevList.svg" alt="로고" class="logo"></a>
+  <div class="search">
+    <!-- action는 추후에 백엔드가 개발되면 링크 삽입 -->
+    <form action="#" method="get">
+      <!-- placeholder 추후에 바뀔수 있음. -->
+      <input type="text" name="t" placeholder="검색어를 입력하세요.">
+    </form>
+  </div>
+  <div class="user-profile">
+    <a href="#"><p>User Nickname</p></a>
+  </div>
+</header>
+<div class="container">
+  <!-- 사이드 바 영역 -->
+  <aside class="side-bar">
+    <ul>
+      <li>
+        <a href="#">
+          <img src="../static/img/icon/dashboard.svg" alt="dashboard">
+          <p>대쉬보드</p>
+        </a>
+      </li>
+      <li>
+        <a href="../html/Calendar.html">
+          <img src="../static/img/icon/calendar.svg" alt="Calendar">
+          <p>캘린더</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="../static/img/icon/map.svg" alt="RoadMap">
+          <p>로드맵</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="../static/img/icon/comment.svg" alt="Discussion">
+          <p>질문 게시판</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="../static/img/icon/note.svg" alt="Notes">
+          <p>노트</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="../static/img/icon/help.svg" alt="Help">
+          <p>도움말</p>
+        </a>
+      </li>
+    </ul>
+  </aside>
+  <!-- 메인 컨텐츠 영역 -->
+  <section id="discussion-wrap">
+    <div id="title">
+      <h1>Title</h1>
+      <button id="back" onclick="Back()"></button>
+    </div>
+    <hr>
+    <div id="content">
+      <h4>content</h4>
+    </div>
+    <div id="comment">
+      <h3>Comment</h3>
+      <hr>
+      <input type="text" id="commentInfo">
+      <button id="send" onclick="Send()"></button>
+      <ul>
+        <li></li>
+      </ul>
+    </div>
+  </section>
+</div>
+<script th:inline="javascript">
+
+  function Back(){
+    window.location.href = "discussions";
+  }
+  function Send(){
+
+  }
+  document.addEventListener("DOMContentLoaded", function(){
+    var data = [[${data}]];
+    var comments = [[${comment}]];
+  });
+</script>
+</body>
+</html>

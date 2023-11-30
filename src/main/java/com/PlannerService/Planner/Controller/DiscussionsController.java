@@ -25,6 +25,11 @@ public class DiscussionsController {
         model.addAttribute("data", result);
         return "discussions";
     }
+    @PostMapping("/loadedQuestion")
+    public String loadQuestion(Model model, @RequestBody String dcs_id){
+
+        return "LoadedQuestion";
+    }
     @GetMapping("/askQuestion")
     public String askQuestion(){
         return "askQuestion";
