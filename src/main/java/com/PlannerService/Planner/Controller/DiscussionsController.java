@@ -1,16 +1,14 @@
 package com.PlannerService.Planner.Controller;
 
 import com.PlannerService.Planner.DTO.DiscussionsDTO;
-import com.PlannerService.Planner.Entity.DiscussionsEntity;
 import com.PlannerService.Planner.Service.DiscussionsService;
 
-import ch.qos.logback.core.model.Model;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 
 import java.util.List;
@@ -20,6 +18,18 @@ import java.util.List;
 public class DiscussionsController {
 
     private final DiscussionsService discussionsService;
+
+    @GetMapping("/discussions")
+    public String discussions(Model model){
+        String result = discussionsService.getQuestions();
+        model.addAttribute("data", result);
+        return "discussions";
+    }
+    @PostMapping("/loadedQuestion")
+    public String loadQuestion(Model model, @RequestBody String dcs_id){
+
+        return "LoadedQuestion";
+    }
     @GetMapping("/askQuestion")
     public String askQuestion(){
         return "askQuestion";

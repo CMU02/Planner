@@ -5,6 +5,9 @@ import com.PlannerService.Planner.Entity.Categories;
 import com.PlannerService.Planner.Entity.DiscussionsEntity;
 import com.PlannerService.Planner.Repository.CategoriesRepository;
 import com.PlannerService.Planner.Repository.DiscussionsRepository;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import lombok.RequiredArgsConstructor;
 
 import java.util.*;
@@ -38,9 +41,41 @@ public class DiscussionsService {
             hash.put("dcs_title",entities.get(i).getTitle());
             hash.put("dcs_content",entities.get(i).getContent());
             hash.put("cate_content",entities.get(i).getCategories().getName());
+            hash.put("dcs_id", entities.get(i).getId().toString());
             result.add(hash);
+
         }
 
-        return result.toString();
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            return objectMapper.writeValueAsString(result);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            return "Error converting to JSON";
+        }
     }
+    public String getQuestion(int id){
+        List<DiscussionsEntity> entities = getAllEntities();
+
+        HashMap<String, String> result = new HashMap<>();
+        for(int i=0; i< entities.size(); i++){
+            if(entities.get(i).getId() == id) {
+                result.put("dcs_title", entities.get(i).getTitle());
+                result.put("dcs_content", entities.get(i).getContent());
+                result.put("cate_content", entities.get(i).getCategories().getName());
+                result.put("dcs_id", entities.get(i).getId().toString());
+                break;
+            }
+
+        }
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            return objectMapper.writeValueAsString(result);
+        } catch (JsonProcessingException e) {
+            return "Error converting to JSON";
+        }
+    }
+
+
 }

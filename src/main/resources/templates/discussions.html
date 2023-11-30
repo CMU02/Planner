@@ -3,100 +3,464 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../static/css/discussions.css">
     <title>JDevList Discussions</title>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <style>
+        @font-face {
+            font-family: 'Pretendard-variable';
+            src: url(../img/font/PretendardVariable.ttf);
+        }
+        /* 珥덇린 �명똿 */
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        body, ul, li, a, h2{
+            font-family: 'Pretendard-variable';
+            list-style: none;
+            text-decoration: none;
+        }
+
+        /* �ㅻ뜑 */
+        header {
+            position: relative;
+            width: 100%;
+            height: 10vh;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 6px 10px -5px gray;
+        }
+        header a img{
+            margin-left: 50px;
+            width: 216px;
+            height: 63px;
+        }
+        header .search form input {
+            width: 500px;
+            height: 50px;
+            border: 0px;
+            border-radius: 25px;
+            background-color: #ecf0f8;
+        }
+        header .search form input[type="text"] {
+            padding-left: 25px;
+            font-size: 17px;
+        }
+        header .user-profile {
+            margin-right: 50px;
+            font-size: 20px;
+            color: #000000;
+        }
+        header .user-profile a {
+            text-decoration: none;
+        }
+
+        .container {
+            z-index: -1;
+            width: 100%;
+            height: 90vh;
+            display: flex;
+            background-color: #ecf0f8;
+        }
+        /* �ъ씠�� 諛� CSS */
+        .side-bar {
+            width: 14.6%;
+            height: 85vh;
+            box-shadow: 10px 5px 10px -5px gray;
+            margin-top: 15px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            /* transform: translate(-230px, 0);
+            transition: 0.7s; */
+        }
+
+        /* .side-bar:hover {
+            transform: translate(0px, 0px)
+        } */
+
+        .side-bar ul {
+            padding-top: 2.6vh;
+            padding-left: 0px;
+        }
+        .side-bar ul li {
+            width: 100%;
+            height: 8vh;
+            display: flex;
+        }
+        .side-bar ul li:hover {
+            background-color: #1155cc;
+        }
+        .side-bar ul li:nth-child(6) {
+            margin-top: 32vh;
+        }
+
+        .side-bar ul li a {
+            display: flex;
+            align-items: center;
+        }
+        .side-bar ul li a img {
+            width: 40px;
+            height: 40px;
+            padding-left: 5px;
+        }
+        .side-bar ul li a p {
+            padding-left: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #000000;
+        }
+
+        section {
+            margin-left: 2%;
+            margin-top: 1.0%;
+            width: 81%;
+            height: 84.5vh;
+            background-color: #ffffff;
+            display:inline-grid;
+            align-content:flex-start;
+            overflow:hidden;
+            padding:2%;
+        }
+
+        section h2{
+            width:100%;
+        }
+
+        hr{
+            width:100%;
+        }
+        #content_top{
+            width:100%;
+            height:20vh;
+            margin-bottom: 2%;
+            display:flex;
+            justify-content:left;
+            margin-top: 1%;
+        }
+        #inputboxes{
+            height:100%;
+            width:70%;
+            display: inline-grid;
+        }
+        #inputboxes div{
+            width:100%;
+            height:60%;
+            border: 1px solid black;
+            display:flex;
+        }
+        #inputboxes div img{
+            margin-right: 2%;
+            height:100%;
+        }
+        #inputboxes div input{
+            height: 100%;
+            width:100%;
+            border:none;
+        }
+        #buttons{
+            margin-left: 1.5%;
+            height:100%;
+            width:20%;
+            display:inline-grid;
+        }
+        #buttons button{
+            border-radius: 5px;
+            font-weight:bold;
+        }
+        #searchButton{
+            background-color:#1155CC;
+            color:white;
+            border:none;
+        }
+        #resetButton{
+            background-color:#ECF5F8;
+            color:black;
+            border:none;
+        }
+        #askButton{
+            background-color:#D0002E;
+            color:white;
+            border:none;
+        }
+        #buttons button{
+            width:110px;
+            margin-bottom: 2%;
+            height:90%;
+        }
+        #content_bottom{
+            width:100%;
+            margin-top: 2%;
+            height:52vh;
+            overflow-y:scroll;
+        }
+        #content_bottom::-webkit-scrollbar{
+            background: var(--unnamed-color-474c66) 0% 0% no-repeat padding-box;
+            background: #474C66 0% 0% no-repeat padding-box;
+            border: 1px solid #707070;
+        }
+        #content_bottom::-webkit-scrollbar-thumb{
+            background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            border: 1px solid #707070;
+            opacity: 1;
+        }
+
+        .question{
+            border: 1px solid black;
+            border-radius: 10px;
+            margin-bottom: 1%;
+            padding: 1%;
+            width:100%;
+            height:20vh;
+        }
+        .title{
+            width:100%;
+            height:30%;
+            font-weight:bolder;
+            font-size:20px;
+        }
+        .subtitle{
+            margin-top:1%;
+            height:40%;
+            width:100%;
+            font-size:16px;
+        }
+        .question div{
+            height:30%;
+            display:flex;
+            margin-right: 2%;
+            margin-left: 1%;
+        }
+    </style>
 </head>
 <body>
-    <!-- 헤더 영역 -->
-    <header>
-        <a href="#"><img src="../static/img/logo/JDevList.svg" " alt="로고" class="logo"></a>
-        <div class="search">
-            <!-- action는 추후에 백엔드가 개발되면 링크 삽입 -->
-            <form action="#" method="get">
-                <!-- placeholder 추후에 바뀔수 있음. -->
-                <input type="text" name="t" placeholder="검색어를 입력하세요.">
-            </form>
-        </div>
-        <div class="user-profile">
-            <a href="#"><p>User Nickname</p></a>
-        </div>
-    </header>
-    <div class="container">
-        <!-- 사이드 바 영역 -->
-        <aside class="side-bar">
-            <ul>
-                <li>
-                    <a href="#">
-                        <img src="../static/img/icon/dashboard.svg" alt="dashboard">
-                        <p>대쉬보드</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="Calendar.html">
-                        <img src="../static/img/icon/calendar.svg" alt="Calendar">
-                        <p>캘린더</p>   
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="../static/img/icon/map.svg" alt="RoadMap">
-                        <p>로드맵</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="../static/img/icon/comment.svg" alt="Discussion">
-                        <p>질문 게시판</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="../static/img/icon/note.svg" alt="Notes">
-                        <p>노트</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="../static/img/icon/help.svg" alt="Help">
-                        <p>도움말</p>
-                    </a>
-                </li>
-            </ul>
-        </aside>
-        <!-- 메인 컨텐츠 영역 -->
-        <section id="discussion-wrap">
-            <h2>Discussions</h2>
-
-            <div id="content_top">
-                <!--상단부분 : 입력칸, 버튼-->
-                <div id="inputboxes">
-                    <!--검색창, 태그 검색창-->
-                    <div>
-<!--                        <img src="../static/img/icon/search.svg">-->
-                        <img src="../static/img/icon/search.svg">
-                        <input type="text" id="searchQuestionInput" name="searchQuestion" placeholder="궁금한 질문은 검색하세요!">
-                    </div><div>
-<!--                        <img src="../static/img/icon/filter.svg">-->
-                            <img src="../static/img/icon/filter.svg">
-                        <input type="text" id="searchQuestionWithTagInput" name="searchQuestionWithTag" placeholder="태그로 검색하세요!">
-                    </div>
-                </div>
-                <div id="buttons">
-                    <!--Search, Reset, Ask 버튼-->
-                    <button id="searchButton" onclick="Search()">Search</button>
-                    <button id="resetButton" onclick="Reset()">Reset</button>
-                    <button id="askButton" onclick="AskQuestion()">Ask Question</button>
-                </div>
-            </div>
-            <hr>
-            <div id="content_bottom">
-                <!--하단부분 : 게시글-->
-                <ul id="board_list">
-                </ul>
-            </div>
-        </section>
+<!-- 헤더 영역 -->
+<header>
+    <a href="#"><img src="../static/img/logo/JDevList.svg" alt="로고" class="logo"></a>
+    <div class="search">
+        <!-- action는 추후에 백엔드가 개발되면 링크 삽입 -->
+        <form action="#" method="get">
+            <!-- placeholder 추후에 바뀔수 있음. -->
+            <input type="text" name="t" placeholder="검색어를 입력하세요.">
+        </form>
     </div>
-    <script src="../static/discussions.js"></script>
+    <div class="user-profile">
+        <a href="#"><p>User Nickname</p></a>
+    </div>
+</header>
+<div class="container">
+    <!-- 사이드 바 영역 -->
+    <aside class="side-bar">
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="../static/img/icon/dashboard.svg" alt="dashboard">
+                    <p>대쉬보드</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../static/img/icon/calendar.svg" alt="Calendar">
+                    <p>캘린더</p>   
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../static/img/icon/map.svg" alt="RoadMap">
+                    <p>로드맵</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../static/img/icon/comment.svg" alt="Discussion">
+                    <p>질문 게시판</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../static/img/icon/note.svg" alt="Notes">
+                    <p>노트</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../static/img/icon/help.svg" alt="Help">
+                    <p>도움말</p>
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <!-- 메인 컨텐츠 영역 -->
+    <section id="discussion-wrap">
+        <h2>Discussions</h2>
+
+        <div id="content_top">
+            <!--상단부분 : 입력칸, 버튼-->
+            <div id="inputboxes">
+                <!--검색창, 태그 검색창-->
+                <div>
+                    <!--                        <img src="../static/img/icon/search.svg">-->
+                    <img src="../static/img/icon/search.svg">
+                    <input type="text" id="searchQuestionInput" name="searchQuestion" placeholder="궁금한 질문은 검색하세요!">
+                </div><div>
+                <!--                        <img src="../static/img/icon/filter.svg">-->
+                <img src="../static/img/icon/filter.svg">
+                <input type="text" id="searchQuestionWithTagInput" name="searchQuestionWithTag" placeholder="태그로 검색하세요!">
+            </div>
+            </div>
+            <div id="buttons">
+                <!--Search, Reset, Ask 버튼-->
+                <button id="searchButton" onclick="Search()">Search</button>
+                <button id="resetButton" onclick="Reset()">Reset</button>
+                <button id="askButton" onclick="AskQuestion()">Ask Question</button>
+            </div>
+        </div>
+        <hr>
+        <div id="content_bottom">
+            <!--하단부분 : 게시글-->
+            <ul id="board_list">
+            </ul>
+        </div>
+    </section>
+</div>
+<script th:inline="javascript">
+
+    var board = new Board();
+    var savedData;
+    const searchBox = document.getElementById("searchQuestionInput");
+    const tagBox = document.getElementById("searchQuestionWithTagInput");
+    function AskQuestion(){ //AskQuestion 버튼
+        window.location.href = 'askQuestion';
+    }
+    function Search(){ //Search 버튼
+        var keyword = searchBox.value;
+        var subKeyword = tagBox.value;
+        ClearBoard();
+        for (let i=0; i< savedData.length; i++){
+            if(savedData[i].dcs_title.includes(keyword) && savedData[i].cate_content.includes(subKeyword)){
+                board.questions.push(savedData[i]);
+                console.log("검색됨");
+                console.log(savedData[i]);
+            }
+        }
+
+        const ul = document.getElementById("board_list");
+        for(let i=0; i<board.questions.length; i++){
+            let li = document.createElement("li");
+            let first_div = document.createElement("div");
+            first_div.className = "question";
+            let first_p = document.createElement("p");
+            first_p.className = "title";
+            first_p.textContent = board.questions[i].dcs_title;
+            let second_p = document.createElement("p");
+            second_p.className = "subtitle";
+            second_p.textContent = board.questions[i].dcs_content;
+
+            let second_div = document.createElement("div")
+            second_div.className="tags";
+
+            let third_div = document.createElement("div")
+            third_div.textContent = board.questions[i].cate_content;
+
+            ul.appendChild(li);
+            li.appendChild(first_div)
+            first_div.appendChild(first_p);
+            first_div.appendChild(second_p);
+            first_div.appendChild(second_div);
+            second_div.appendChild(third_div);
+        }
+    }
+    function Reset(){ //Reset 버튼
+        searchBox.value = "";
+        tagBox.value = "";
+        ClearBoard();
+        for (let i=0; i< savedData.length; i++){
+            board.questions.push(savedData[i]);
+        }
+        const ul = document.getElementById("board_list")
+
+        for(let i=0; i<board.questions.length; i++){
+            let li = document.createElement("li");
+            let first_div = document.createElement("div");
+            first_div.className = "question";
+            let first_p = document.createElement("p");
+            first_p.className = "title";
+            first_p.textContent = savedData[i].dcs_title;
+            let second_p = document.createElement("p");
+            second_p.className = "subtitle";
+            second_p.textContent =savedData[i].dcs_content;
+
+            let second_div = document.createElement("div")
+            second_div.className="tags";
+
+            let third_div = document.createElement("div")
+            third_div.textContent = savedData[i].cate_content;
+
+            ul.appendChild(li);
+            li.appendChild(first_div)
+            first_div.appendChild(first_p);
+            first_div.appendChild(second_p);
+            first_div.appendChild(second_div);
+            second_div.appendChild(third_div);
+        }
+    }
+    function ClearBoard(){
+        const ul = document.getElementById("board_list");
+        board.questions = [];
+        while(ul.firstChild){
+            ul.removeChild(ul.firstChild);
+        }
+    }
+    document.addEventListener("DOMContentLoaded", function(){
+        var data = [[${data}]];
+        data = JSON.parse(data);
+        savedData = data;
+        for (let i=0; i< data.length; i++){
+            board.questions.push(data[i]);
+        }
+        const ul = document.getElementById("board_list")
+
+        for(let i=0; i<board.questions.length; i++){ //질문 수만큼 생성
+            let li = document.createElement("li");
+            let first_div = document.createElement("div");
+            first_div.className = "question";
+            first_div.id = data[i].dcs_id;
+            let first_p = document.createElement("p");
+            first_p.className = "title";
+            first_p.textContent = data[i].dcs_title;
+            let second_p = document.createElement("p");
+            second_p.className = "subtitle";
+            second_p.textContent = data[i].dcs_content;
+
+            let second_div = document.createElement("div")
+            second_div.className="tags";
+
+            let third_div = document.createElement("div")
+            third_div.textContent = data[i].cate_content;
+
+            ul.appendChild(li);
+            li.appendChild(first_div)
+            first_div.appendChild(first_p);
+            first_div.appendChild(second_p);
+            first_div.appendChild(second_div);
+            second_div.appendChild(third_div);
+        }
+    });
+
+    function Board(){ //질문들을 저장하는 보드 객체
+        this.questions = []; //리스트에 질문을 담음
+    }
+    function Question(title, content, tag){ //질문 객체
+        this.title = title; //질문 제목
+        this.content = content; //질문 내용
+        this.tag = tag; //질문 태그 (리스트로 받을 예정)
+        this.id;
+    }
+
+</script>
+
 </body>
 </html>
