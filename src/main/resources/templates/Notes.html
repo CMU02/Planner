@@ -16,6 +16,7 @@
             padding: 10%;
         }
         
+        
     </style>
     
    
@@ -77,8 +78,34 @@
                 </li>
             </ul>
         </aside>
-        <textarea name="" id="" cols="30" rows="10" class="title-wrapper"></textarea>
+        <textarea id="userText" cols="30" rows="10" class="title-wrapper"></textarea>
+        <div class="button-container">
+            <button onclick="saveText()">Save Text</button>
+            <button onclick="loadText()">Load Text</button>
+            <button onclick="clearText()">Clear Text</button>
+        </div>
         
+        </div>
+        <script>
+            function saveText() {
+                var userText = document.getElementById("userText").value;
+                localStorage.setItem("userText", userText);
+                alert("텍스트가 저장되었습니다!")
+            }
+
+            function loadText() {
+                var savedText = localStorage.getItem("userText");
+                if(savedText) {
+                    document.getElementById("userText").value = savedText;
+                    alert("텍스트가 불러와졌습니다!")
+                } else {
+                    alert("저장된 텍스트가 없습니다.")
+                }
+            }
+            function clearText() {
+                document.getElementById("userText").value = "";
+            }
+        </script>
     
 </body>
 </html>

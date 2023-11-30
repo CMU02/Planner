@@ -1,18 +1,29 @@
 package com.PlannerService.Planner.Controller;
 
-import com.PlannerService.Planner.DTO.MakePlanRequest;
-import com.PlannerService.Planner.Entity.Plan;
+import com.PlannerService.Planner.DTO.PlanResponse;
+import com.PlannerService.Planner.DTO.PlanViewResponse;
 import com.PlannerService.Planner.Service.PlanService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-public class PlanApiController {
+public class PlanViewController {
+    private final PlanService planService;
 
+    @GetMapping("/calendar")
+    public String getPlan(Model model)
+    {
+        List<PlanViewResponse> planner = planService.findAll()
+                .stream()
+                .map(PlanViewResponse::new)
+                .toList();
+        model.addAttribute("planner", planner);
+
+        return "Calendar";
+    }
 }

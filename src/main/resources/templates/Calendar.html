@@ -74,19 +74,19 @@
                 <button><img src="../static/img/icon/Add-white.svg" alt=""></button>
             </div>
             <div class="Plan-List" id="external-events">
-                <div class="card">
+                <div class="card" th:each="item : ${planner}">
                     <div class="card-header">
                         <!-- 일정 제목 -->
                         <div class="title">
-                            <h3>Title</h3>
+                            <h3 th:text="${item.title}">Title</h3>
                         </div>
                     </div>
                     <hr>
                     <div class="card-body">
                         <!-- 일정 상세 내용들 -->
-                        <div class="startDate"></div>
-                        <div class="lastDate"></div>
-                        <div class="content"></div>
+                        <div class="startDate" th:text="${item.getStartDateTime()}"></div>
+                        <div class="lastDate" th:text="${item.getEndDateTime()}"></div>
+                        <div class="content" th:text="${item.getMemo()}"></div>
                     </div>
                 </div>
             </div>

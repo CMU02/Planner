@@ -19,8 +19,4 @@ public class HomeController {
     public String signIn() {
         return "login";
     }
-    @GetMapping("/calendar")
-    public String plan() {
-        return "Calendar";
-    }
 }
