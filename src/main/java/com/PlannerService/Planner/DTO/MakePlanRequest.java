@@ -15,16 +15,16 @@ import java.time.LocalDateTime;
 public class MakePlanRequest {
     private String title;
     private User user;
-    private String startDateTime;
-    private String endDateTime;
+    private String start;
+    private String end;
     private String memo;
 
     public Plan toEntity() {
         return Plan.builder()
                 .title(title)
                 .user(user)
-                .startTime(startDateTime)
-                .endTime(endDateTime)
+                .start(start)
+                .end(end)
                 .memo(memo)
                 .build();
     }

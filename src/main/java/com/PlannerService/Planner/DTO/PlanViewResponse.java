@@ -7,16 +7,16 @@ import lombok.Getter;
 public class PlanViewResponse {
     private final Long id;
     private final String title;
-    private final String startDateTime;
-    private final String endDateTime;
+    private final String start;
+    private final String end;
     private final String memo;
 
     public PlanViewResponse(Plan plan)
     {
         this.id = plan.getId();
         this.title = plan.getTitle();
-        this.startDateTime = plan.getStartTime();
-        this.endDateTime = plan.getEndTime();
+        this.start = plan.getStart();
+        this.end = plan.getEnd();
         this.memo = plan.getMemo();
     }
 }

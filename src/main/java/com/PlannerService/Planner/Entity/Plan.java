@@ -28,20 +28,20 @@ public class Plan
     private String title; // 일정 제목
 
     @Column(name = "plan_start_time")
-    private String startTime; // 일정 시작 날짜시간
+    private String start; // 일정 시작 날짜시간
 
     @Column(name = "plan_end_time")
-    private String endTime; // 일정 종료 날짜시간
+    private String end; // 일정 종료 날짜시간
 
     @Column(name = "plan_memo")
     private String memo; // 일정 메모
 
     @Builder // 빌더 패턴으로 객체 생성
-    public Plan(String title, User user,String startTime, String endTime, String memo) {
+    public Plan(String title, User user,String start, String end, String memo) {
         this.title = title;
         this.user = user;
-        this.startTime = startTime;
-        this.endTime = endTime;
+        this.start = start;
+        this.end = end;
         this.memo = memo;
     }
 }

@@ -36,5 +36,4 @@ public class UserController
                 .toList();
         return ResponseEntity.ok().body(responseList);
     }
-
 }

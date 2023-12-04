@@ -19,7 +19,7 @@
             </form>
         </div>
         <div class="user-profile">
-            <a href="#"><p>User Nickname</p></a>
+            <a href="#" th:text="planner.name"><p>User Nickname</p></a>
         </div>
     </header>
     <div class="container">
@@ -71,14 +71,14 @@
 
         <nav class="PlanList-container">
             <div class="create-Plan">
-                <button><img src="../static/img/icon/Add-white.svg" alt=""></button>
+                <button onclick="openNewPlan()"><img src="../static/img/icon/Add-white.svg" id="plus&minus"></button>
             </div>
-            <div class="Plan-List" id="external-events">
+            <div class="Plan-List" id="external-events-list">
                 <div class="card" th:each="item : ${planner}">
                     <div class="card-header">
                         <!-- 일정 제목 -->
                         <div class="title">
-                            <h3 th:text="${item.title}">Title</h3>
+                            <h3 th:text="${item.title}"></h3>
                         </div>
                     </div>
                     <hr>
@@ -92,7 +92,7 @@
             </div>
         </nav>
 
-        <div class="createPlan-wrap">
+        <div class="createPlan-wrap" id="createPlanWrap">
             <form method="post" id="form">
                 <div class="title">
                     <h3>제목</h3>
@@ -101,11 +101,11 @@
                 <div class="dateTime">
                     <div class="DateTime">
                         <h3>시작</h3>
-                        <input type="datetime-local" name="startDateTime" id="start">
+                        <input type="datetime-local" name="start" id="start">
                     </div>
                     <div class="DateTime">
                         <h3>종료</h3>
-                        <input type="datetime-local" name="endDateTime" id="end">
+                        <input type="datetime-local" name="end" id="end">
                     </div>
                     <div class="memo">
                         <h3>메모 내용</h3>

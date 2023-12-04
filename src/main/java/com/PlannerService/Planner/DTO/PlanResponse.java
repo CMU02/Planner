@@ -8,14 +8,14 @@ import lombok.NoArgsConstructor;
 @Getter
 public class PlanResponse {
     private final String title;
-    private final String startDateTime;
-    private final String endDateTime;
+    private final String start;
+    private final String end;
     private final String memo;
 
     public PlanResponse(Plan plan) {
         this.title = plan.getTitle();
-        this.startDateTime = plan.getStartTime();
-        this.endDateTime = plan.getEndTime();
+        this.start = plan.getStart();
+        this.end = plan.getEnd();
         this.memo = plan.getMemo();
     }
 }

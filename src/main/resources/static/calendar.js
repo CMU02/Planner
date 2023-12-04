@@ -1,7 +1,20 @@
 document.write('<script src="/src/main/resources/static/index.global.js"></script>');
 
-// 달력 메서드
+
+
+
+// 달력 메서드 & 이벤트 메서드
 document.addEventListener('DOMContentLoaded', function() {
+  let containerEl = document.getElementById('external-events-list')
+  new FullCalendar.Draggable(containerEl, {
+    itemSelector: '.card',
+    eventData : function (evenEl) {
+      return {
+        title : evenEl.innerText.trim(),
+      }
+    }
+  });
+
   var calendatEI = document.getElementById('calendar');
 
   var calendar = new FullCalendar.Calendar(calendatEI, {
@@ -15,12 +28,20 @@ document.addEventListener('DOMContentLoaded', function() {
     businessHours: true,
     editable: true,
     selectable : true,
+    droppable : true,
+    drop: function (arg) {
+      arg.draggedEl.parentNode.removeChild(arg.draggedEl);
+    },
+    events : []
   });
   calendar.render();
 });
 
-const form = document.getElementById('form')
+let GetLoad = new FormData();
+const GetData = Object.fromEntries(GetLoad);
 
+// 일정 만들기 메서드
+const form = document.getElementById('form')
 form.addEventListener('submit', event => {
   event.preventDefault();
 
@@ -35,8 +56,27 @@ form.addEventListener('submit', event => {
     body: JSON.stringify(data)
   }).then(() => {
     alert('일정 등록이 완료 되었습니다.')
+    location.replace("/calendar")
+    GetLoad += JSON.stringify(data);
   }).catch(() => {
     alert('일정 등록이 실패 했습니다.')
   })
 })
+
+// 일정 만드는 페이지 표현 메서드
+let done = false
+function openNewPlan() {
+  if (done == false)
+  {
+    document.querySelector('#createPlanWrap').style.display = "none";
+    document.getElementById('plus&minus').src = "../static/img/icon/Add-white.svg"
+    done = true
+  }
+  else
+  {
+    document.querySelector('#createPlanWrap').style.display = "block";
+    document.getElementById('plus&minus').src = "../static/img/icon/white-minus.svg"
+    done = false
+  }
+}
 
