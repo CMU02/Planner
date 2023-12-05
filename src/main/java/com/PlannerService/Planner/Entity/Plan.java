@@ -1,5 +1,6 @@
 package com.PlannerService.Planner.Entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -27,17 +28,19 @@ public class Plan
     @Column(name = "plan_title")
     private String title; // 일정 제목
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "Asia/Seoul")
     @Column(name = "plan_start_time")
-    private String start; // 일정 시작 날짜시간
+    private LocalDateTime start; // 일정 시작 날짜시간
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "Asia/Seoul")
     @Column(name = "plan_end_time")
-    private String end; // 일정 종료 날짜시간
+    private LocalDateTime end; // 일정 종료 날짜시간
 
     @Column(name = "plan_memo")
     private String memo; // 일정 메모
 
     @Builder // 빌더 패턴으로 객체 생성
-    public Plan(String title, User user,String start, String end, String memo) {
+    public Plan(String title, User user,LocalDateTime start, LocalDateTime end, String memo) {
         this.title = title;
         this.user = user;
         this.start = start;

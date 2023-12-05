@@ -1,4 +1,4 @@
-document.write('<script src="/src/main/resources/static/index.global.js"></script>');
+document.write('<script src="../static/index.global.js"></script>');
 
 
 
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     itemSelector: '.card',
     eventData : function (evenEl) {
       return {
-        title : evenEl.innerText.trim(),
+        title : evenEl.innerText.trim()
       }
     }
   });
@@ -29,16 +29,9 @@ document.addEventListener('DOMContentLoaded', function() {
     editable: true,
     selectable : true,
     droppable : true,
-    drop: function (arg) {
-      arg.draggedEl.parentNode.removeChild(arg.draggedEl);
-    },
-    events : []
   });
   calendar.render();
 });
-
-let GetLoad = new FormData();
-const GetData = Object.fromEntries(GetLoad);
 
 // 일정 만들기 메서드
 const form = document.getElementById('form')
@@ -48,7 +41,7 @@ form.addEventListener('submit', event => {
   const payload = new FormData(form)
   const data = Object.fromEntries(payload)
 
-  fetch('/api/v1/user/plan', {
+  fetch('/user/plan', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -56,8 +49,7 @@ form.addEventListener('submit', event => {
     body: JSON.stringify(data)
   }).then(() => {
     alert('일정 등록이 완료 되었습니다.')
-    location.replace("/calendar")
-    GetLoad += JSON.stringify(data);
+    location.reload()
   }).catch(() => {
     alert('일정 등록이 실패 했습니다.')
   })

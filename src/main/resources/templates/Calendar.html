@@ -84,8 +84,8 @@
                     <hr>
                     <div class="card-body">
                         <!-- 일정 상세 내용들 -->
-                        <div class="startDate" th:text="${item.getStartDateTime()}"></div>
-                        <div class="lastDate" th:text="${item.getEndDateTime()}"></div>
+                        <div class="startDate" th:text="${item.getStart()}"></div>
+                        <div class="lastDate" th:text="${item.getEnd()}"></div>
                         <div class="content" th:text="${item.getMemo()}"></div>
                     </div>
                 </div>

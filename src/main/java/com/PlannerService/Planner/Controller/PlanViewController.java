@@ -2,11 +2,13 @@ package com.PlannerService.Planner.Controller;
 
 import com.PlannerService.Planner.DTO.PlanResponse;
 import com.PlannerService.Planner.DTO.PlanViewResponse;
+import com.PlannerService.Planner.Entity.User;
 import com.PlannerService.Planner.Service.PlanService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -16,7 +18,7 @@ public class PlanViewController {
     private final PlanService planService;
 
     @GetMapping("/calendar")
-    public String getPlan(Model model)
+    public String getPlan(Model model, @PathVariable String id)
     {
         List<PlanViewResponse> planner = planService.findAll()
                 .stream()

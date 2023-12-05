@@ -15,8 +15,8 @@ import java.time.LocalDateTime;
 public class MakePlanRequest {
     private String title;
     private User user;
-    private String start;
-    private String end;
+    private LocalDateTime start;
+    private LocalDateTime end;
     private String memo;
 
     public Plan toEntity() {

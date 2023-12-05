@@ -5,11 +5,13 @@ import com.PlannerService.Planner.Entity.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Getter
 public class PlanResponse {
     private final String title;
-    private final String start;
-    private final String end;
+    private final LocalDateTime start;
+    private final LocalDateTime end;
     private final String memo;
 
     public PlanResponse(Plan plan) {
