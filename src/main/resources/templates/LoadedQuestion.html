@@ -122,7 +122,24 @@
       padding:2%;
     }
 
-
+    #title{
+      display: flex;
+      margin-bottom:10px;
+    }
+    #content{
+      margin-top:10px;
+    }
+    #back{
+      width:10%;
+      height:100%;
+      margin-left:auto;
+      background-color: red;
+      border: none;
+      border-radius: 5px;
+      color:white;
+      font-size: 100%;
+      font-weight: bold;
+    }
 
   </style>
 </head>
@@ -187,34 +204,25 @@
   <section id="discussion-wrap">
     <div id="title">
       <h1>Title</h1>
-      <button id="back" onclick="Back()"></button>
+      <button id="back">나가기</button>
     </div>
     <hr>
     <div id="content">
       <h4>content</h4>
     </div>
-    <div id="comment">
-      <h3>Comment</h3>
-      <hr>
-      <input type="text" id="commentInfo">
-      <button id="send" onclick="Send()"></button>
-      <ul>
-        <li></li>
-      </ul>
-    </div>
+
   </section>
 </div>
 <script th:inline="javascript">
-
+  var title = document.getElementById("title");
+  var content = document.getElementById("content");
   function Back(){
     window.location.href = "discussions";
   }
-  function Send(){
-
-  }
   document.addEventListener("DOMContentLoaded", function(){
     var data = [[${data}]];
-    var comments = [[${comment}]];
+    title.innerHTML = `<h1>${data.comment_title}</h1><button id='back' onclick='Back()'>나가기</button>`;
+    content.innerHTML = `<h4>${data.comment_content}</h4>`;
   });
 </script>
 </body>
