@@ -215,6 +215,7 @@
             padding: 1%;
             width:100%;
             height:20vh;
+            cursor: pointer;
         }
         .title{
             width:100%;
@@ -264,7 +265,7 @@
             <li>
                 <a href="#">
                     <img src="../static/img/icon/calendar.svg" alt="Calendar">
-                    <p>캘린더</p>   
+                    <p>캘린더</p>
                 </a>
             </li>
             <li>
@@ -333,7 +334,7 @@
     const searchBox = document.getElementById("searchQuestionInput");
     const tagBox = document.getElementById("searchQuestionWithTagInput");
     function AskQuestion(){ //AskQuestion 버튼
-        window.location.href = 'askQuestion';
+        window.location.href = 'AskQuestion';
     }
     function Search(){ //Search 버튼
         var keyword = searchBox.value;
@@ -371,6 +372,31 @@
             first_div.appendChild(second_p);
             first_div.appendChild(second_div);
             second_div.appendChild(third_div);
+
+            first_div.addEventListener('click', function(){
+                const requestBody = {
+                    comment_title: board.questions[i].dcs_title,
+                    comment_content: board.questions[i].dcs_content
+                };
+
+                console.log(JSON.stringify(requestBody));
+                fetch('/questionClick', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestBody)
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log('데이터를 서버로 전송했습니다.');
+                            window.location.href = "LoadedQuestion"
+                        }
+                    })
+                    .catch(error => {
+                        console.error('데이터 전송 중 오류 발생: ' + error);
+                    });
+            });
         }
     }
     function Reset(){ //Reset 버튼
@@ -405,8 +431,34 @@
             first_div.appendChild(second_p);
             first_div.appendChild(second_div);
             second_div.appendChild(third_div);
+
+            first_div.addEventListener('click', function(){
+                const requestBody = {
+                    comment_title: savedData[i].dcs_title,
+                    comment_content: savedData[i].dcs_content
+                }; //request 괄호
+
+                console.log(JSON.stringify(requestBody));
+                fetch('/questionClick', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestBody)
+                }) //fetch 괄호
+                    .then(response => {
+                        if (response.ok) {
+                            console.log('데이터를 서버로 전송했습니다.');
+                            window.location.href = "LoadedQuestion"
+                        }
+                    }) //response괄호
+                    .catch(error => {
+                        console.error('데이터 전송 중 오류 발생: ' + error);
+                    }); //catch괄호
+            });//이벤트 리스너
         }
     }
+
     function ClearBoard(){
         const ul = document.getElementById("board_list");
         board.questions = [];
@@ -447,6 +499,31 @@
             first_div.appendChild(second_p);
             first_div.appendChild(second_div);
             second_div.appendChild(third_div);
+
+            first_div.addEventListener('click', function(){
+                const requestBody = {
+                    comment_title: savedData[i].dcs_title,
+                    comment_content: savedData[i].dcs_content
+                }; //request 괄호
+
+                console.log(JSON.stringify(requestBody));
+                fetch('/questionClick', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestBody)
+                }) //fetch 괄호
+                    .then(response => {
+                        if (response.ok) {
+                            console.log('데이터를 서버로 전송했습니다.');
+                            window.location.href = "LoadedQuestion"
+                        }
+                    }) //response괄호
+                    .catch(error => {
+                        console.error('데이터 전송 중 오류 발생: ' + error);
+                    }); //catch괄호
+            });//이벤트 리스너
         }
     });
 
