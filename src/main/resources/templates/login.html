@@ -37,13 +37,15 @@
       const data = Object.fromEntries(payload)
 
       fetch('/api/v1/auth/signin', {
-          method: 'POST',
-          headers: {
-            'Content-Type' : 'application/json'
-          },
-          body: JSON.stringify(data)
+        method: 'POST',
+        headers: {
+          'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(data)
       }).then(() => {
-          location.replace("/calendar")
+
+        location.replace("/checklogin")
+
       }).catch(() => {
         alert('로그인 실패 했습니다.')
       })

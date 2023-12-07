@@ -19,4 +19,12 @@ public class HomeController {
     public String signIn() {
         return "login";
     }
+    @GetMapping("/help")
+    public String help(){
+        return "Help";
+    }
+    @GetMapping("/roadmap")
+    public String roadmap(){
+        return "Roadmap";
+    }
 }

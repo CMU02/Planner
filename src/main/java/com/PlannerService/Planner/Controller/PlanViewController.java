@@ -18,7 +18,7 @@ public class PlanViewController {
     private final PlanService planService;
 
     @GetMapping("/calendar")
-    public String getPlan(Model model, @PathVariable String id)
+    public String getPlan(Model model)
     {
         List<PlanViewResponse> planner = planService.findAll()
                 .stream()

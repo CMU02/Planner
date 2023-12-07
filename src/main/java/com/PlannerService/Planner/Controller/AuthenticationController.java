@@ -4,6 +4,7 @@ import com.PlannerService.Planner.DTO.JwtAuthenticationResponse;
 import com.PlannerService.Planner.DTO.RefreshTokenRequest;
 import com.PlannerService.Planner.DTO.SignInRequest;
 import com.PlannerService.Planner.DTO.SignUpRequest;
+import com.PlannerService.Planner.Entity.TokenEntity;
 import com.PlannerService.Planner.Entity.User;
 import com.PlannerService.Planner.Service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
@@ -29,7 +30,9 @@ public class AuthenticationController
 
     @PostMapping("/signin") // 로그인 API
     public ResponseEntity<JwtAuthenticationResponse> signin(@RequestBody SignInRequest signInRequest) {
-        return ResponseEntity.ok(authenticationService.signIn(signInRequest));
+        var result = authenticationService.signIn(signInRequest);
+        TokenEntity.token = result.getToken();
+        return ResponseEntity.ok(result);
     }
 
     @PostMapping("/refresh")
