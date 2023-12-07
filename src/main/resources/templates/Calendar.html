@@ -19,7 +19,7 @@
             </form>
         </div>
         <div class="user-profile">
-            <a href="#" th:text="planner.name"><p>User Nickname</p></a>
+            <a href="#"><p id="username">User Nickname</p></a>
         </div>
     </header>
     <div class="container">
@@ -118,5 +118,14 @@
     </div>
 
     <script src="../static/calendar.js"></script>
+    <script th:inline="javascript">
+        if([[${name}]] == null){
+            var username = sessionStorage.getItem('username');
+            document.getElementById("username").innerHTML=username;
+        }else{
+            sessionStorage.setItem('username', [[${name}]]);
+            document.getElementById("username").innerHTML = [[${name}]];
+        }
+    </script>
 </body>
 </html>

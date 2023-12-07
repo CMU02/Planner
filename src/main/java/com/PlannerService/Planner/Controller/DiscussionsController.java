@@ -2,6 +2,8 @@ package com.PlannerService.Planner.Controller;
 
 import com.PlannerService.Planner.DTO.CommentDTO;
 import com.PlannerService.Planner.DTO.DiscussionsDTO;
+import com.PlannerService.Planner.Entity.User;
+import com.PlannerService.Planner.Repository.UserRepository;
 import com.PlannerService.Planner.Service.DiscussionsService;
 
 import lombok.RequiredArgsConstructor;
@@ -11,13 +13,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.Optional;
+
 
 @Controller
 @RequiredArgsConstructor
 public class DiscussionsController {
 
     private final DiscussionsService discussionsService;
-
     @GetMapping("/discussions")
     public String discussions(Model model){
         String result = discussionsService.getQuestions();

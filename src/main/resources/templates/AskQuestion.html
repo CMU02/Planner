@@ -302,7 +302,7 @@
         </form>
     </div>
     <div class="user-profile">
-        <a href="#"><p>User Nickname</p></a>
+        <a href="#"><p id="username">User Nickname</p></a>
     </div>
 </header>
 <div class="container">
@@ -371,6 +371,12 @@
     </section>
 </div>
 <script>
+    var username = sessionStorage.getItem('username');
+    document.getElementById("username").innerHTML=username;
+
+    if (username==null){
+        window.location.href = "/"
+    }
     const cancelBtn = document.getElementById("cancel");
     const postBtn = document.getElementById("post");
 

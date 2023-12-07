@@ -19,7 +19,7 @@
         </form>
     </div>
     <div class="user-profile">
-        <a href="#"><p>User Nickname</p></a>
+        <a href="#"><p id="username">User Nickname</p></a>
     </div>
 </header>
 <div class="container">
@@ -33,19 +33,19 @@
                 </a>
             </li>
             <li>
-                <a href="Calendar.html">
+                <a href="/calendar">
                     <img src="../static/img/icon/calendar.svg" alt="Calendar">
                     <p>캘린더</p>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="/roadmap">
                     <img src="../static/img/icon/map.svg" alt="RoadMap">
                     <p>로드맵</p>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="/discussions">
                     <img src="../static/img/icon/comment.svg" alt="Discussion">
                     <p>질문 게시판</p>
                 </a>
@@ -57,7 +57,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="/help">
                     <img src="../static/img/icon/help.svg" alt="Help">
                     <p>도움말</p>
                 </a>
@@ -619,5 +619,12 @@
 </div>
 </section>
 </div>
+<script>
+    var username = sessionStorage.getItem('username');
+    document.getElementById("username").innerHTML=username;
+    if (username==null){
+        window.location.href = "/"
+    }
+</script>
 </body>
 </html>

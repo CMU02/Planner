@@ -27,4 +27,10 @@ public class HomeController {
     public String roadmap(){
         return "Roadmap";
     }
+
+    @GetMapping("/frontRM")
+    public String frontRM() {return "FrontRM";}
+
+    @GetMapping("/backRM")
+    public String backRM() {return "BackRM";}
 }

@@ -249,7 +249,7 @@
         </form>
     </div>
     <div class="user-profile">
-        <a href="#"><p>User Nickname</p></a>
+        <a href="#"><p id="username">User Nickname</p></a>
     </div>
 </header>
 <div class="container">
@@ -328,7 +328,11 @@
     </section>
 </div>
 <script th:inline="javascript">
-
+    var username = sessionStorage.getItem('username');
+    document.getElementById("username").innerHTML=username;
+    if (username==null){
+        window.location.href = "/"
+    }
     var board = new Board();
     var savedData;
     const searchBox = document.getElementById("searchQuestionInput");
