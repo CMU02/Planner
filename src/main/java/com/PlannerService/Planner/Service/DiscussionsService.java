@@ -42,6 +42,7 @@ public class DiscussionsService {
             hash.put("dcs_content",entities.get(i).getContent());
             hash.put("cate_content",entities.get(i).getCategories().getName());
             hash.put("dcs_id", entities.get(i).getId().toString());
+            hash.put("username", entities.get(i).getUsername());
             result.add(hash);
 
         }

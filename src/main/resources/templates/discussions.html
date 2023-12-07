@@ -346,14 +346,14 @@
         ClearBoard();
         for (let i=0; i< savedData.length; i++){
             if(savedData[i].dcs_title.includes(keyword) && savedData[i].cate_content.includes(subKeyword)){
-                board.questions.push(savedData[i]);
+                board.questions.unshift(savedData[i]);
                 console.log("검색됨");
                 console.log(savedData[i]);
             }
         }
 
         const ul = document.getElementById("board_list");
-        for(let i=0; i<board.questions.length; i++){
+        for(let i=board.questions.length-1; i>=0; i--){
             let li = document.createElement("li");
             let first_div = document.createElement("div");
             first_div.className = "question";
@@ -380,7 +380,8 @@
             first_div.addEventListener('click', function(){
                 const requestBody = {
                     comment_title: board.questions[i].dcs_title,
-                    comment_content: board.questions[i].dcs_content
+                    comment_content: board.questions[i].dcs_content,
+                    username: board.questions[i].username
                 };
 
                 console.log(JSON.stringify(requestBody));
@@ -408,11 +409,11 @@
         tagBox.value = "";
         ClearBoard();
         for (let i=0; i< savedData.length; i++){
-            board.questions.push(savedData[i]);
+            board.questions.unshift(savedData[i]);
         }
         const ul = document.getElementById("board_list")
 
-        for(let i=0; i<board.questions.length; i++){
+        for(let i=board.questions.length-1; i>=0; i--){
             let li = document.createElement("li");
             let first_div = document.createElement("div");
             first_div.className = "question";
@@ -439,7 +440,8 @@
             first_div.addEventListener('click', function(){
                 const requestBody = {
                     comment_title: savedData[i].dcs_title,
-                    comment_content: savedData[i].dcs_content
+                    comment_content: savedData[i].dcs_content,
+                    username: savedData[i].username
                 }; //request 괄호
 
                 console.log(JSON.stringify(requestBody));
@@ -475,11 +477,11 @@
         data = JSON.parse(data);
         savedData = data;
         for (let i=0; i< data.length; i++){
-            board.questions.push(data[i]);
+            board.questions.unshift(data[i]);
         }
         const ul = document.getElementById("board_list")
 
-        for(let i=0; i<board.questions.length; i++){ //질문 수만큼 생성
+        for(let i=board.questions.length-1; i>=0; i--){ //질문 수만큼 생성
             let li = document.createElement("li");
             let first_div = document.createElement("div");
             first_div.className = "question";
@@ -507,7 +509,8 @@
             first_div.addEventListener('click', function(){
                 const requestBody = {
                     comment_title: savedData[i].dcs_title,
-                    comment_content: savedData[i].dcs_content
+                    comment_content: savedData[i].dcs_content,
+                    username: savedData[i].username
                 }; //request 괄호
 
                 console.log(JSON.stringify(requestBody));
@@ -538,7 +541,7 @@
         this.title = title; //질문 제목
         this.content = content; //질문 내용
         this.tag = tag; //질문 태그 (리스트로 받을 예정)
-        this.id;
+        this.username = "";
     }
 
 </script>

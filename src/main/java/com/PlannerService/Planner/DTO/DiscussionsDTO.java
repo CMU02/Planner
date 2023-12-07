@@ -17,4 +17,5 @@ public class DiscussionsDTO {
     private String dcs_title;
     private String dcs_content;
     private String cate_content;
+    private String username;
 }

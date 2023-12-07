@@ -37,10 +37,14 @@ public class DiscussionsEntity {
     @Column(name="dcs_content", nullable = false)
     private String content = ""; // 질문 내용
 
+    @Column(name="username")
+    private String username;
+
     public static DiscussionsEntity toEntity(DiscussionsDTO discussionsDTO){
         DiscussionsEntity discussionsEntity = new DiscussionsEntity();
         discussionsEntity.title = discussionsDTO.getDcs_title();
         discussionsEntity.content = discussionsDTO.getDcs_content();
+        discussionsEntity.username = discussionsDTO.getUsername();
         return discussionsEntity;
     }
 }

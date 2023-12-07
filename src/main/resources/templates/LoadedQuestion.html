@@ -140,7 +140,9 @@
       font-size: 100%;
       font-weight: bold;
     }
-
+    h4{
+      height:70vh;
+    }
   </style>
 </head>
 <body>
@@ -210,7 +212,7 @@
     <div id="content">
       <h4>content</h4>
     </div>
-
+    <p id="writer">작성자</p>
   </section>
 </div>
 <script th:inline="javascript">
@@ -221,6 +223,7 @@
   }
   var title = document.getElementById("title");
   var content = document.getElementById("content");
+  var writer = document.getElementById("writer");
   function Back(){
     window.location.href = "discussions";
   }
@@ -228,6 +231,7 @@
     var data = [[${data}]];
     title.innerHTML = `<h1>${data.comment_title}</h1><button id='back' onclick='Back()'>나가기</button>`;
     content.innerHTML = `<h4>${data.comment_content}</h4>`;
+    writer.innerText = `작성자: ${data.username}`;
   });
 </script>
 </body>
