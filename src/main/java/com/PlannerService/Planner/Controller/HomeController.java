@@ -25,7 +25,7 @@ public class HomeController {
     }
     @GetMapping("/roadmap")
     public String roadmap(){
-        return "Roadmap";
+        return "RoadMap";
     }
 
     @GetMapping("/frontRM")

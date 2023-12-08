@@ -47,9 +47,11 @@ form.addEventListener('submit', event => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(data)
-  }).then(() => {
-    alert('일정 등록이 완료 되었습니다.')
-    location.reload()
+  }).then((response) => {
+      if (response.ok) {
+        console.log("일정 만들기 성공")
+        window.location.href = "calendar"
+      }
   }).catch(() => {
     alert('일정 등록이 실패 했습니다.')
   })
