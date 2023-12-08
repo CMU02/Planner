@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -280,12 +280,11 @@
                             </a>
                         </div>
                     </div>
-                </div>
             </div>
         </section>
     </div>
     <script>
-        var username = sessionStorage.getItem('username');
+        let username = sessionStorage.getItem('username');
         document.getElementById("username").innerHTML=username;
         if (username==null){
             window.location.href = "/"
