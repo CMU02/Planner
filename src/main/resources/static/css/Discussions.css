@@ -1,0 +1,122 @@
+section {
+    margin-left: 2%;
+    margin-top: 1.0%;
+    width: 81%;
+    height: 84.5vh;
+    background-color: #ffffff;
+    display:inline-grid;
+    align-content:flex-start;
+    overflow:hidden;
+    padding:2%;
+}
+
+section h2{
+    width:100%;
+}
+
+hr{
+    width:100%;
+}
+#content_top{
+    width:100%;
+    height:20vh;
+    margin-bottom: 2%;
+    display:flex;
+    justify-content:left;
+    margin-top: 1%;
+}
+#inputboxes{
+    height:100%;
+    width:70%;
+    display: inline-grid;
+}
+#inputboxes div{
+    width:100%;
+    height:60%;
+    border: 1px solid black;
+    display:flex;
+}
+#inputboxes div img{
+    margin-right: 2%;
+    height:100%;
+}
+#inputboxes div input{
+    height: 100%;
+    width:100%;
+    border:none;
+}
+#buttons{
+    margin-left: 1.5%;
+    height:100%;
+    width:20%;
+    display:inline-grid;
+}
+#buttons button{
+    border-radius: 5px;
+    font-weight:bold;
+}
+#searchButton{
+    background-color:#1155CC;
+    color:white;
+    border:none;
+}
+#resetButton{
+    background-color:#ECF5F8;
+    color:black;
+    border:none;
+}
+#askButton{
+    background-color:#D0002E;
+    color:white;
+    border:none;
+}
+#buttons button{
+    width:110px;
+    margin-bottom: 2%;
+    height:90%;
+}
+#content_bottom{
+    width:100%;
+    margin-top: 2%;
+    height:52vh;
+    overflow-y:scroll;
+}
+#content_bottom::-webkit-scrollbar{
+    background: var(--unnamed-color-474c66) 0% 0% no-repeat padding-box;
+    background: #474C66 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+}
+#content_bottom::-webkit-scrollbar-thumb{
+    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    opacity: 1;
+}
+
+.question{
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-bottom: 1%;
+    padding: 1%;
+    width:100%;
+    height:20vh;
+    cursor: pointer;
+}
+.title{
+    width:100%;
+    height:30%;
+    font-weight:bolder;
+    font-size:20px;
+}
+.subtitle{
+    margin-top:1%;
+    height:40%;
+    width:100%;
+    font-size:16px;
+}
+.question div{
+    height:30%;
+    display:flex;
+    margin-right: 2%;
+    margin-left: 1%;
+}

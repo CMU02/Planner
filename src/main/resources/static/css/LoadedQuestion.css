@@ -1,0 +1,33 @@
+section {
+    margin-left: 2%;
+    margin-top: 1.0%;
+    width: 81%;
+    height: 84.5vh;
+    background-color: #ffffff;
+    display:inline-grid;
+    align-content:flex-start;
+    overflow:hidden;
+    padding:2%;
+}
+
+#title{
+    display: flex;
+    margin-bottom:10px;
+}
+#content{
+    margin-top:10px;
+}
+#back{
+    width:10%;
+    height:100%;
+    margin-left:auto;
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    color:white;
+    font-size: 100%;
+    font-weight: bold;
+}
+h4{
+    height:70vh;
+}

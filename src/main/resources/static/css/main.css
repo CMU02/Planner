@@ -105,13 +105,3 @@ header .user-profile a {
     color: #000000;
 }
 
-section {
-    margin-left: 2%;
-    margin-top: 1.0%;
-    width: 81%;
-    height: 84.5vh;
-    background-color: #ffffff;
-    display: flex;
-    justify-content: flex-end;
-    box-shadow: 10px 8px 10px -2px gray;
-}
