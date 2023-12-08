@@ -1,6 +1,5 @@
 package com.PlannerService.Planner.Controller;
 
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -23,9 +22,10 @@ public class HomeController {
     public String help(){
         return "Help";
     }
-    @GetMapping("/roadmap")
-    public String roadmap(){
-        return "RoadMap";
+    @GetMapping("/roadMap")
+    public String roadMap()
+    {
+        return "Roadmap";
     }
 
     @GetMapping("/frontRM")
