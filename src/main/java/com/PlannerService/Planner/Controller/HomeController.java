@@ -22,10 +22,10 @@ public class HomeController {
     public String help(){
         return "Help";
     }
-    @GetMapping("/roadMap")
-    public String roadMap()
+    @GetMapping("/map")
+    public String map()
     {
-        return "Roadmap";
+        return "map";
     }
 
     @GetMapping("/frontRM")
